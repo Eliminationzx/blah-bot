@@ -25,3 +25,4 @@ TEST (htmlDocumentPaserTest, checkDocumentValidity) {
     ASSERT_TRUE (p.isValid (html2));
     ASSERT_TRUE (p.isValid (html3));
 }
+
