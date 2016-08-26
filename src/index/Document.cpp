@@ -10,11 +10,7 @@ using namespace std;
 
 Document::Document (DocumentParser* Parser)
     : parser (Parser)
-{
-#include <iostream>
-
-    cout << "just testing\n";
-}
+{}
 
 Document::~Document () {
     delete parser;              // !!!!

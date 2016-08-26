@@ -6,8 +6,8 @@ link_directories(/usr/local/lib)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fconcepts")
 
-set(SOURCE_FILES main.cpp tests/parser/htmlDocumentParserTest.cpp)
-add_executable(indexer ${SOURCE_FILES})
+set (SOURCE_FILES main.cpp)
+add_executable (indexer ${SOURCE_FILES})
 
 include_directories(src)
 include_directories(lib)

@@ -21,7 +21,7 @@ TEST (htmlDocumentPaserTest, checkDocumentValidity) {
 //    string html7 = "";
 //    string html8 = "";
 
-    ASSERT_TRUE (p.isHTMLValid (html));
-    ASSERT_TRUE (p.isHTMLValid (html2));
-    ASSERT_TRUE (p.isHTMLValid (html3));
+    ASSERT_TRUE (p.isValid (html));
+    ASSERT_TRUE (p.isValid (html2));
+    ASSERT_TRUE (p.isValid (html3));
 }
