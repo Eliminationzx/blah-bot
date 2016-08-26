@@ -1,0 +1,88 @@
+\hypertarget{classHTMLDocument}{}\section{H\+T\+M\+L\+Document Class Reference}
+\label{classHTMLDocument}\index{H\+T\+M\+L\+Document@{H\+T\+M\+L\+Document}}
+
+
+{\ttfamily \#include $<$H\+T\+M\+L\+Document.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries H\+T\+M\+L\+Document} (const std\+::string \&html)\hypertarget{classHTMLDocument_a98e4e50ff2b4fe3b13cea21e3094e80d}{}\label{classHTMLDocument_a98e4e50ff2b4fe3b13cea21e3094e80d}
+
+\item 
+{\bfseries H\+T\+M\+L\+Document} (std\+::string \&\&html)\hypertarget{classHTMLDocument_acc0354fc26aac69b2fd1a04706c1e25f}{}\label{classHTMLDocument_acc0354fc26aac69b2fd1a04706c1e25f}
+
+\item 
+void \hyperlink{classHTMLDocument_a20196a45d63965ad7c9860079adbf779}{parse} ()
+\begin{DoxyCompactList}\small\item\em parse html code. \end{DoxyCompactList}\item 
+unsigned long {\bfseries get\+Id} () const \hypertarget{classHTMLDocument_a28fa57f3d55f2dd1a4f7cbb3fd544200}{}\label{classHTMLDocument_a28fa57f3d55f2dd1a4f7cbb3fd544200}
+
+\item 
+void {\bfseries set\+Id} (unsigned long id)\hypertarget{classHTMLDocument_a445aad9a305d71d496e52c935fab720e}{}\label{classHTMLDocument_a445aad9a305d71d496e52c935fab720e}
+
+\item 
+const std\+::string \& {\bfseries get\+Html} () const \hypertarget{classHTMLDocument_acff4c5828290b6997d9c29f69bdc5915}{}\label{classHTMLDocument_acff4c5828290b6997d9c29f69bdc5915}
+
+\item 
+bool \hyperlink{classHTMLDocument_a26d4250db9a7b0dfdd103c4ad4fb4b99}{set\+Html} (const std\+::string \&html)
+\begin{DoxyCompactList}\small\item\em Set html code. \end{DoxyCompactList}\item 
+bool {\bfseries set\+Html} (std\+::string \&\&html)\hypertarget{classHTMLDocument_aceba92aefa58d39ba06466199580e693}{}\label{classHTMLDocument_aceba92aefa58d39ba06466199580e693}
+
+\item 
+const std\+::string \& {\bfseries get\+Text} () const \hypertarget{classHTMLDocument_a575b82acaa32219ef65b8ed1be818bab}{}\label{classHTMLDocument_a575b82acaa32219ef65b8ed1be818bab}
+
+\item 
+void {\bfseries set\+Text} (const std\+::string \&text)\hypertarget{classHTMLDocument_a9f21e2c958db4e300fdf5ae314981df3}{}\label{classHTMLDocument_a9f21e2c958db4e300fdf5ae314981df3}
+
+\item 
+const std\+::vector$<$ std\+::string $>$ \& {\bfseries get\+Tokens} () const \hypertarget{classHTMLDocument_a34cc34993ff60ebfe0b033ed11a8341a}{}\label{classHTMLDocument_a34cc34993ff60ebfe0b033ed11a8341a}
+
+\item 
+void {\bfseries set\+Tokens} (const std\+::vector$<$ std\+::string $>$ \&tokens)\hypertarget{classHTMLDocument_afd3e0702fb251d9340c7ab3780f637cc}{}\label{classHTMLDocument_afd3e0702fb251d9340c7ab3780f637cc}
+
+\item 
+bool {\bfseries is\+Valid} () const \hypertarget{classHTMLDocument_a995ec1bb3ae82cd90b227e3f842f52fe}{}\label{classHTMLDocument_a995ec1bb3ae82cd90b227e3f842f52fe}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores all the document\textquotesingle{}s data 
+
+\subsection{Member Function Documentation}
+\index{H\+T\+M\+L\+Document@{H\+T\+M\+L\+Document}!parse@{parse}}
+\index{parse@{parse}!H\+T\+M\+L\+Document@{H\+T\+M\+L\+Document}}
+\subsubsection[{\texorpdfstring{parse()}{parse()}}]{\setlength{\rightskip}{0pt plus 5cm}void H\+T\+M\+L\+Document\+::parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHTMLDocument_a20196a45d63965ad7c9860079adbf779}{}\label{classHTMLDocument_a20196a45d63965ad7c9860079adbf779}
+
+
+parse html code. 
+
+Checks if the html code is valid. Uses \hyperlink{classHTMLDocumentParser}{H\+T\+M\+L\+Document\+Parser}. \index{H\+T\+M\+L\+Document@{H\+T\+M\+L\+Document}!set\+Html@{set\+Html}}
+\index{set\+Html@{set\+Html}!H\+T\+M\+L\+Document@{H\+T\+M\+L\+Document}}
+\subsubsection[{\texorpdfstring{set\+Html(const std\+::string \&html)}{setHtml(const std::string &html)}}]{\setlength{\rightskip}{0pt plus 5cm}bool H\+T\+M\+L\+Document\+::set\+Html (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{html}
+\end{DoxyParamCaption}
+)}\hypertarget{classHTMLDocument_a26d4250db9a7b0dfdd103c4ad4fb4b99}{}\label{classHTMLDocument_a26d4250db9a7b0dfdd103c4ad4fb4b99}
+
+
+Set html code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em html} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the html code is valid or not 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/index/H\+T\+M\+L\+Document.\+h\item 
+src/index/H\+T\+M\+L\+Document.\+cpp\end{DoxyCompactItemize}

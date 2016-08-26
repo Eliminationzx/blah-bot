@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googlemock/src/gmock-all.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googlemock/src/gmock_main.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googlemock/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googletest/src/gtest_main.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googletest/src/gtest-all.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googletest/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest/googletest/cmake/internal_utils.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/parser/htmlDocumentParserTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/parser/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/indexatorTest/tokenizeTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/indexatorTest/indexatorHeader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/indexatorTest/stemmingTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/indexatorTest/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Stemmer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Worker.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/IStemmer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Document.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Document.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Worker.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/index/Stemmer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/parser/HTMLDocumentParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/parser/DocumentParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/parser/HTMLDocumentParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1/include" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1/include" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

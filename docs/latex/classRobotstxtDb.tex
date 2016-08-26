@@ -1,0 +1,78 @@
+\hypertarget{classRobotstxtDb}{}\section{Robotstxt\+Db Class Reference}
+\label{classRobotstxtDb}\index{Robotstxt\+Db@{Robotstxt\+Db}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classRobotstxtDb_a1cc7a4d45061fa120d6c02f7eb359f91}{is\+In\+Db} (const std\+::string \&url) const 
+\begin{DoxyCompactList}\small\item\em is robots.\+txt in the db \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRobotstxtDb_a7e0fa901c2293d490f5f43a3cd7923fa}{insert\+Rules} (std\+::vector$<$ std\+::string $>$ \&rules, int site\+Id) const 
+\begin{DoxyCompactList}\small\item\em insert robots.\+txt rules into the db \end{DoxyCompactList}\item 
+virtual int {\bfseries insert\+Robotstxt} (const std\+::string \&address, bool site\+Disallowed) const \hypertarget{classRobotstxtDb_a779cfd1177638ffd256f5c400779741e}{}\label{classRobotstxtDb_a779cfd1177638ffd256f5c400779741e}
+
+\item 
+virtual bool \hyperlink{classRobotstxtDb_a9dae4c624e64d95732d17ba031aa6675}{is\+Page\+Disallowed} (std\+::string \&url) const 
+\begin{DoxyCompactList}\small\item\em is a page is disallowed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Robotstxt\+Db@{Robotstxt\+Db}!insert\+Rules@{insert\+Rules}}
+\index{insert\+Rules@{insert\+Rules}!Robotstxt\+Db@{Robotstxt\+Db}}
+\subsubsection[{\texorpdfstring{insert\+Rules(std\+::vector$<$ std\+::string $>$ \&rules, int site\+Id) const }{insertRules(std::vector< std::string > &rules, int siteId) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Robotstxt\+Db\+::insert\+Rules (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{rules, }
+\item[{int}]{site\+Id}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRobotstxtDb_a7e0fa901c2293d490f5f43a3cd7923fa}{}\label{classRobotstxtDb_a7e0fa901c2293d490f5f43a3cd7923fa}
+
+
+insert robots.\+txt rules into the db 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rules} & array of robots.\+txt rules \\
+\hline
+\end{DoxyParams}
+\index{Robotstxt\+Db@{Robotstxt\+Db}!is\+In\+Db@{is\+In\+Db}}
+\index{is\+In\+Db@{is\+In\+Db}!Robotstxt\+Db@{Robotstxt\+Db}}
+\subsubsection[{\texorpdfstring{is\+In\+Db(const std\+::string \&url) const }{isInDb(const std::string &url) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Robotstxt\+Db\+::is\+In\+Db (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{url}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRobotstxtDb_a1cc7a4d45061fa120d6c02f7eb359f91}{}\label{classRobotstxtDb_a1cc7a4d45061fa120d6c02f7eb359f91}
+
+
+is robots.\+txt in the db 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & address of the web site \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the data from robots.\+txt file of the site is in db 
+\end{DoxyReturn}
+\index{Robotstxt\+Db@{Robotstxt\+Db}!is\+Page\+Disallowed@{is\+Page\+Disallowed}}
+\index{is\+Page\+Disallowed@{is\+Page\+Disallowed}!Robotstxt\+Db@{Robotstxt\+Db}}
+\subsubsection[{\texorpdfstring{is\+Page\+Disallowed(std\+::string \&url) const }{isPageDisallowed(std::string &url) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Robotstxt\+Db\+::is\+Page\+Disallowed (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{url}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRobotstxtDb_a9dae4c624e64d95732d17ba031aa6675}{}\label{classRobotstxtDb_a9dae4c624e64d95732d17ba031aa6675}
+
+
+is a page is disallowed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & address of the page \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/db/robotstxt\+Db.\+h\item 
+src/db/robotstxt\+Db.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,66 @@
+\hypertarget{classhtmlParser}{}\section{html\+Parser Class Reference}
+\label{classhtmlParser}\index{html\+Parser@{html\+Parser}}
+
+
+{\ttfamily \#include $<$html\+Parser.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries parse} (\hyperlink{structPage}{Page} \&page)\hypertarget{classhtmlParser_ac47136ba9b515f69781b3339dff46178}{}\label{classhtmlParser_ac47136ba9b515f69781b3339dff46178}
+
+\item 
+std\+::string \hyperlink{classhtmlParser_a878b14e5af56fe8e39deb52d23156827}{extract\+Text} (const std\+::string \&html)
+\begin{DoxyCompactList}\small\item\em extract text of a page from html code \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classhtmlParser_a1d8b60d5d5650140079fe63b23520c22}{extract\+Links} (const std\+::string \&html)
+\begin{DoxyCompactList}\small\item\em extract links from a page \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Operations on html code 
+
+\subsection{Member Function Documentation}
+\index{html\+Parser@{html\+Parser}!extract\+Links@{extract\+Links}}
+\index{extract\+Links@{extract\+Links}!html\+Parser@{html\+Parser}}
+\subsubsection[{\texorpdfstring{extract\+Links(const std\+::string \&html)}{extractLinks(const std::string &html)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ html\+Parser\+::extract\+Links (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{html}
+\end{DoxyParamCaption}
+)}\hypertarget{classhtmlParser_a1d8b60d5d5650140079fe63b23520c22}{}\label{classhtmlParser_a1d8b60d5d5650140079fe63b23520c22}
+
+
+extract links from a page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em html} & source code of the page \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array of links from the page 
+\end{DoxyReturn}
+\index{html\+Parser@{html\+Parser}!extract\+Text@{extract\+Text}}
+\index{extract\+Text@{extract\+Text}!html\+Parser@{html\+Parser}}
+\subsubsection[{\texorpdfstring{extract\+Text(const std\+::string \&html)}{extractText(const std::string &html)}}]{\setlength{\rightskip}{0pt plus 5cm}string html\+Parser\+::extract\+Text (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{html}
+\end{DoxyParamCaption}
+)}\hypertarget{classhtmlParser_a878b14e5af56fe8e39deb52d23156827}{}\label{classhtmlParser_a878b14e5af56fe8e39deb52d23156827}
+
+
+extract text of a page from html code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em html} & source code of the page \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+plain text from the page
+\end{DoxyReturn}
+Wrapper around gumbo library. Uses internal dump\+Text method recursively to parse html code. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+H\+T\+M\+L/html\+Parser.\+h\item 
+src/\+H\+T\+M\+L/html\+Parser.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\hypertarget{classWorker}{}\section{Worker Class Reference}
+\label{classWorker}\index{Worker@{Worker}}
+
+
+{\ttfamily \#include $<$Worker.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Worker} (\hyperlink{classWorker}{Worker} \&)=delete\hypertarget{classWorker_a0fb59883eb34da625420e40141dd29b2}{}\label{classWorker_a0fb59883eb34da625420e40141dd29b2}
+
+\item 
+\hyperlink{classWorker}{Worker} \& {\bfseries operator=} (const \hyperlink{classWorker}{Worker} \&)=delete\hypertarget{classWorker_aca397cd5d556133de9f7868127a920f5}{}\label{classWorker_aca397cd5d556133de9f7868127a920f5}
+
+\item 
+{\bfseries Worker} (\hyperlink{classWorker}{Worker} \&\&)=default\hypertarget{classWorker_a0c825b0d290c3c131f7a21758baefd66}{}\label{classWorker_a0c825b0d290c3c131f7a21758baefd66}
+
+\item 
+\hyperlink{classWorker}{Worker} \& {\bfseries operator=} (\hyperlink{classWorker}{Worker} \&\&)=default\hypertarget{classWorker_a3840f121930b58702dcba26b5e0dd83f}{}\label{classWorker_a3840f121930b58702dcba26b5e0dd83f}
+
+\item 
+void \hyperlink{classWorker_a251fee1d1e2715c5606939b5080c8488}{start} (\hyperlink{classHTMLDocument}{H\+T\+M\+L\+Document} \&) const 
+\begin{DoxyCompactList}\small\item\em start indexing a web page \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classWorker_a25d6fba1b641c77bb0565df8b1de12ad}{tokenize} (std\+::string \&) const 
+\begin{DoxyCompactList}\small\item\em split text into a list of tokens \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \hyperlink{classWorker_addf90002a4063b5a8b23de39d151d19a}{stem} (std\+::vector$<$ std\+::string $>$ \&) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages indexing loop 
+
+\subsection{Member Function Documentation}
+\index{Worker@{Worker}!start@{start}}
+\index{start@{start}!Worker@{Worker}}
+\subsubsection[{\texorpdfstring{start(\+H\+T\+M\+L\+Document \&) const }{start(HTMLDocument &) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Worker\+::start (
+\begin{DoxyParamCaption}
+\item[{{\bf H\+T\+M\+L\+Document} \&}]{page}
+\end{DoxyParamCaption}
+) const}\hypertarget{classWorker_a251fee1d1e2715c5606939b5080c8488}{}\label{classWorker_a251fee1d1e2715c5606939b5080c8488}
+
+
+start indexing a web page 
+
+Starts indexing loop\+: read a html file from the source dir, parse it, tokenize, stemm and add to index. \index{Worker@{Worker}!stem@{stem}}
+\index{stem@{stem}!Worker@{Worker}}
+\subsubsection[{\texorpdfstring{stem(std\+::vector$<$ std\+::string $>$ \&) const }{stem(std::vector< std::string > &) const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ \& Worker\+::stem (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{tokens}
+\end{DoxyParamCaption}
+) const}\hypertarget{classWorker_addf90002a4063b5a8b23de39d151d19a}{}\label{classWorker_addf90002a4063b5a8b23de39d151d19a}
+Tokens stemming. 
+\begin{DoxyParams}{Parameters}
+{\em list} & of tokens \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of stemmed tokens
+\end{DoxyReturn}
+Porter`s algorithm \index{Worker@{Worker}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!Worker@{Worker}}
+\subsubsection[{\texorpdfstring{tokenize(std\+::string \&) const }{tokenize(std::string &) const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Worker\+::tokenize (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{text}
+\end{DoxyParamCaption}
+) const}\hypertarget{classWorker_a25d6fba1b641c77bb0565df8b1de12ad}{}\label{classWorker_a25d6fba1b641c77bb0565df8b1de12ad}
+
+
+split text into a list of tokens 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & to tokenize \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of tokens 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/index/Worker.\+h\item 
+src/index/Worker.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\hypertarget{classweb_1_1RobotsController}{}\section{web\+:\+:Robots\+Controller Class Reference}
+\label{classweb_1_1RobotsController}\index{web\+::\+Robots\+Controller@{web\+::\+Robots\+Controller}}
+
+
+The \hyperlink{classweb_1_1RobotsController}{Robots\+Controller} class.  
+
+
+
+
+{\ttfamily \#include $<$robotscontroller.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Robots\+Controller} (std\+::shared\+\_\+ptr$<$ \hyperlink{classweb_1_1HTTP}{H\+T\+TP} $>$, std\+::shared\+\_\+ptr$<$ \hyperlink{classRobotstxtDb}{Robotstxt\+Db} $>$)\hypertarget{classweb_1_1RobotsController_ad9daef54253c82dad14e29c717646e5e}{}\label{classweb_1_1RobotsController_ad9daef54253c82dad14e29c717646e5e}
+
+\item 
+bool \hyperlink{classweb_1_1RobotsController_a087740854f14a7de97707b3c4db63800}{allowed} (std\+::string \&url) const 
+\begin{DoxyCompactList}\small\item\em is\+Allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classweb_1_1RobotsController}{Robots\+Controller} class. 
+
+Performs operations on a robots.\+txt file (loading, parsing, saving to the db). Checks if a page is allowed to access to. 
+
+\subsection{Member Function Documentation}
+\index{web\+::\+Robots\+Controller@{web\+::\+Robots\+Controller}!allowed@{allowed}}
+\index{allowed@{allowed}!web\+::\+Robots\+Controller@{web\+::\+Robots\+Controller}}
+\subsubsection[{\texorpdfstring{allowed(std\+::string \&url) const }{allowed(std::string &url) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool web\+::\+Robots\+Controller\+::allowed (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{url}
+\end{DoxyParamCaption}
+) const}\hypertarget{classweb_1_1RobotsController_a087740854f14a7de97707b3c4db63800}{}\label{classweb_1_1RobotsController_a087740854f14a7de97707b3c4db63800}
+
+
+is\+Allowed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & A page to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the page is allowed to connect to, false otherwise
+\end{DoxyReturn}
+Checks rules for a page in the db. If there\textquotesingle{}s no robots.\+txt for given site in the db -\/ download, parse it and add rules to the db. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/web/robotscontroller.\+h\item 
+src/web/robotscontroller.\+cpp\end{DoxyCompactItemize}

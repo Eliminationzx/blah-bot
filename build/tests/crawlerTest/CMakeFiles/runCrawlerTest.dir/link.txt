@@ -1,0 +1,1 @@
+/usr/bin/g++    -std=c++17 -fconcepts   CMakeFiles/runCrawlerTest.dir/crawlerTest.cpp.o  -o runCrawlerTest ../lib/gtest/googlemock/libgmock.a ../lib/gtest/googlemock/libgmock_main.a -lpq -lpqxx -lcurl ../../src/libsrc.a -lpthread 

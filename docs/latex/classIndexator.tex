@@ -1,0 +1,55 @@
+\hypertarget{classIndexator}{}\section{Worker Class Reference}
+\label{classIndexator}\index{Worker@{Worker}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classIndexator_a66fc1aca92538282ced781a6d5766815}{start} (\hyperlink{structPage}{Page} \&)\hypertarget{classIndexator_a66fc1aca92538282ced781a6d5766815}{}\label{classIndexator_a66fc1aca92538282ced781a6d5766815}
+
+\begin{DoxyCompactList}\small\item\em start indexing web page \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classIndexator_ae1c3bb0ffbf42eb8a639e807b8186dfc}{tokenize} (std\+::string \&)
+\begin{DoxyCompactList}\small\item\em split text into a list of tokens \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \& \hyperlink{classIndexator_af2d982949cf2ba0f654f4a81acc6e0ca}{stem} (std\+::vector$<$ std\+::string $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Worker@{Worker}!stem@{stem}}
+\index{stem@{stem}!Worker@{Worker}}
+\subsubsection[{\texorpdfstring{stem(std\+::vector$<$ std\+::string $>$ \&)}{stem(std::vector< std::string > &)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ \& Worker\+::stem (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$ \&}]{tokens}
+\end{DoxyParamCaption}
+)}\hypertarget{classIndexator_af2d982949cf2ba0f654f4a81acc6e0ca}{}\label{classIndexator_af2d982949cf2ba0f654f4a81acc6e0ca}
+Tokens stemming. 
+\begin{DoxyParams}{Parameters}
+{\em list} & of tokens \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of stemmed tokens
+\end{DoxyReturn}
+Porter`s algorithm \index{Worker@{Worker}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!Worker@{Worker}}
+\subsubsection[{\texorpdfstring{tokenize(std\+::string \&)}{tokenize(std::string &)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Worker\+::tokenize (
+\begin{DoxyParamCaption}
+\item[{std\+::string \&}]{text}
+\end{DoxyParamCaption}
+)}\hypertarget{classIndexator_ae1c3bb0ffbf42eb8a639e807b8186dfc}{}\label{classIndexator_ae1c3bb0ffbf42eb8a639e807b8186dfc}
+
+
+split text into a list of tokens 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & to tokenize \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of tokens 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/index/indexator.\+h\item 
+src/index/indexator.\+cpp\end{DoxyCompactItemize}

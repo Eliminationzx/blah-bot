@@ -1,0 +1,1 @@
+/usr/bin/g++    -std=c++17 -fconcepts   CMakeFiles/runIndexatorTest.dir/tokenizeTest.cpp.o  -o runIndexatorTest ../lib/gtest/googlemock/libgmock.a ../lib/gtest/googlemock/libgmock_main.a -lpthread 
