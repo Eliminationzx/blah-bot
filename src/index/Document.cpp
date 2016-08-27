@@ -8,13 +8,11 @@
 
 using namespace std;
 
-Document::Document (DocumentParser* Parser)
+Document::Document (shared_ptr<DocumentParser> Parser)
     : parser (Parser)
 {}
 
-Document::~Document () {
-    delete parser;              // !!!!
-}
+Document::~Document () {}
 
 bool Document::parse () {
     if (!valid)

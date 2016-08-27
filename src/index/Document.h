@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "parser/HTMLDocumentParser.h"
 
@@ -19,7 +20,7 @@
  * Works with any document format given respective parser for this format.
  */
 class Document {
-    DocumentParser* parser;
+    std::shared_ptr<DocumentParser> parser;
 
     unsigned long id = 0;
     std::string html;
@@ -29,7 +30,7 @@ class Document {
 
 public:
     Document () = delete;
-    Document (DocumentParser* );
+    Document (std::shared_ptr<DocumentParser> );
     ~Document ();
 
 
