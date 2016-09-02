@@ -36,6 +36,8 @@ public:
      * \brief split text into a list of tokens
      * @param text to tokenize
      * @returns a vector of tokens
+     *
+     * Teporary implementation: split words by all non alphanumeric characters
      */
     std::vector<std::string> tokenize (std::string& ) const;
 
