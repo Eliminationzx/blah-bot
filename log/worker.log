@@ -7,3 +7,27 @@
 [2016-09-02 19:41:28.229] [worker] [debug] dir entry: file5
 [2016-09-02 19:41:28.229] [worker] [debug] dir entry: file3
 [2016-09-02 19:41:28.229] [worker] [debug] dir entry: file1
+[2016-09-02 20:07:10.656] [worker] [debug] void Worker::start() const
+[2016-09-02 20:07:10.656] [worker] [info] source dir exists
+[2016-09-02 20:07:10.656] [worker] [debug] File: file2, 
+Contents: 22
+[2016-09-02 20:07:10.656] [worker] [debug] File: file4, 
+Contents: 
+[2016-09-02 20:07:10.656] [worker] [debug] File: file5, 
+Contents: 
+[2016-09-02 20:07:10.656] [worker] [debug] File: file3, 
+Contents: 
+[2016-09-02 20:07:10.656] [worker] [debug] File: file1, 
+Contents: 
+[2016-09-02 20:07:38.630] [worker] [debug] void Worker::start() const
+[2016-09-02 20:07:38.630] [worker] [info] source dir exists
+[2016-09-02 20:07:38.630] [worker] [debug] File: file2, 
+Contents: 22
+[2016-09-02 20:07:38.630] [worker] [debug] File: file4, 
+Contents: 44444
+[2016-09-02 20:07:38.630] [worker] [debug] File: file5, 
+Contents: 55555
+[2016-09-02 20:07:38.630] [worker] [debug] File: file3, 
+Contents: 333
+[2016-09-02 20:07:38.630] [worker] [debug] File: file1, 
+Contents: 1

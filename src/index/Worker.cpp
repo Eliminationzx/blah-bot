@@ -5,7 +5,10 @@
 #include <iostream>
 
 #include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 
+#include "Document.h"
+#include "parser/HTMLDocumentParser.h"
 #include "Worker.h"
 
 using namespace std;
@@ -23,24 +26,41 @@ void Worker::start () const {
     // temporary. Should be loaded from config
     static char const* sourceDirPath = "/home/ololosh/pj/cpp/se/sourceDir";
     path const sourceDir (sourceDirPath);
+    boost::filesystem::ifstream file;
     uint64_t documentId = 0;
+    string fileContents;
+    Document htmlDocument (make_shared<HTMLDocumentParser> ());
 
     logger->debug ("{}", __PRETTY_FUNCTION__);
 
-    // check the indexing dir for a new file
     try {
+        // check the indexing dir for a new file
         if (exists(sourceDir) and is_directory (sourceDir)) {
             logger->info ("source dir exists");
 
             for (directory_entry& entry : directory_iterator (sourceDir)) {
-                logger->debug ("dir entry: {}", entry.path ().filename ().string ());
+                if (is_regular_file (entry.path ())) {
+                    // if there is something - load it
+                    file.open (entry.path ());
+
+                    documentId = stoull (entry.path ().filename ().string ());
+                    fileContents.assign ((istreambuf_iterator<char> (file)),
+                                        istreambuf_iterator<char> ());
+
+                    logger->debug (
+                            "File: {}, \nContents: {}",
+                            entry.path ().filename ().string (),
+                            fileContents
+                    );
+
+                    file.close ();
+                }
             }
         }
     } catch (filesystem_error const& ex) {
         logger->error ("dir exception: {}", ex.what ());
     }
 
-    // if there is something - load it
     // get the file's id from the file's name
     // load the file's url from the db
     // split the document's text into tokens
