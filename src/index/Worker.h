@@ -49,8 +49,6 @@ public:
     std::vector<std::string>& stem (std::vector<std::string>&) const;
 
 private:
-
-public:
 };
 
 

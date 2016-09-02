@@ -54,10 +54,10 @@ public:
     bool setHtml (const std::string &html);
     bool setHtml (std::string&& html);
 
-    const std::string &getText () const;
+    const std::string& getText () const;
     void setText (const std::string &text);
 
-    const std::vector<std::string> &getTokens () const;
+    const std::vector<std::string> getTokens () const;
     void setTokens (const std::vector<std::string> &tokens);
 
     bool isValid () const;

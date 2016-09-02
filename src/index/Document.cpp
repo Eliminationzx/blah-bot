@@ -64,7 +64,7 @@ bool Document::setHtml (std::string&& html) {
     return valid;
 }
 
-const std::string &Document::getText () const {
+const std::string& Document::getText () const {
     return text;
 }
 
@@ -72,7 +72,7 @@ void Document::setText (const std::string &text) {
     Document::text = text;
 }
 
-const std::vector<std::string> &Document::getTokens () const {
+const std::vector<std::string> Document::getTokens () const {
     return tokens;
 }
 

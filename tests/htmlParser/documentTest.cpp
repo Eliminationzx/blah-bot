@@ -3,6 +3,7 @@
 //
 
 #include <string>
+#include <memory>
 
 #include <gmock/gmock.h>
 
@@ -76,11 +77,11 @@ public:
 
 class DocumentTestFixture : public ::testing::Test {
 public:
-    MockDocumentParser* parser = nullptr;
+    shared_ptr<MockDocumentParser> parser;
     Document* doc = nullptr;
 
     DocumentTestFixture () {
-        parser = new MockDocumentParser;
+        parser = make_shared<MockDocumentParser> ();
 
         EXPECT_CALL (*parser, isValid (html))
                      .WillOnce (Return (true));
@@ -88,12 +89,10 @@ public:
                      .WillOnce (Return (expectedText));
     }
 
-    ~DocumentTestFixture() {
-        delete parser;
-    }
+    ~DocumentTestFixture() {}
 
     void SetUp () {
-        Document* doc = new Document (parser);
+        doc = new Document (parser);
     }
 
     void TearDown () {
@@ -105,5 +104,7 @@ TEST_F (DocumentTestFixture, shouldParseHTML) {
     ASSERT_TRUE (doc->setHtml (html));
     ASSERT_TRUE (doc->parse ());
 
-//    ASSERT_STREQ (doc->getText.c_str (), expectedText.c_str ());
+    string text = doc->getText();
+
+    ASSERT_STREQ (text.data (), expectedText.data ());
 }
