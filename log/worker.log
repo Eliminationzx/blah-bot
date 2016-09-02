@@ -1,0 +1,9 @@
+[2016-09-02 19:41:28.224] [worker] [info] void Worker::start() const
+[2016-09-02 19:41:28.224] [worker] [error] blah error
+[2016-09-02 19:41:28.224] [worker] [debug] blah debug
+[2016-09-02 19:41:28.224] [worker] [info] source dir exists
+[2016-09-02 19:41:28.229] [worker] [debug] dir entry: file2
+[2016-09-02 19:41:28.229] [worker] [debug] dir entry: file4
+[2016-09-02 19:41:28.229] [worker] [debug] dir entry: file5
+[2016-09-02 19:41:28.229] [worker] [debug] dir entry: file3
+[2016-09-02 19:41:28.229] [worker] [debug] dir entry: file1

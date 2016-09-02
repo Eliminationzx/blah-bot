@@ -18,6 +18,8 @@ add_subdirectory(src)
 
 target_link_libraries(indexer src)
 target_link_libraries(indexer curl)
+target_link_libraries(indexer boost_system)
+target_link_libraries(indexer boost_filesystem)
 target_link_libraries(indexer pthread)
 target_link_libraries(indexer gumbo)
 target_link_libraries(indexer pq pqxx)

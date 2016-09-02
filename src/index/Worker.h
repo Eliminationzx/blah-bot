@@ -7,6 +7,9 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
+#include <spdlog/spdlog.h>
 
 #include <index/Document.h>
 
@@ -14,6 +17,11 @@
  * Manages indexing loop
  */
 class Worker {
+    std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
+            "worker",
+            "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
+    );
+
 public:
     Worker ();
     ~Worker ();
@@ -30,7 +38,7 @@ public:
      * read a html file from the source dir,
      * parse it, tokenize, stemm and add to index.
      */
-    void start (Document& ) const;
+    void start () const;
 
     /*!
      * \brief split text into a list of tokens
