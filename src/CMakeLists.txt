@@ -13,6 +13,6 @@ set(SOURCE_FILES
         index/Worker.cpp
         index/Stemmer.cpp
         index/Document.cpp
-        )
+        db/DocumentDAO.cpp db/DocumentDAO.h)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
