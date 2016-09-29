@@ -29,6 +29,6 @@ set(SOURCE_FILES
         db/robotstxtDb.cpp
         crawler/crawler.cpp
         web/http.cpp
-        web/robotscontroller.cpp)
+        web/robotscontroller.cpp Engine.cpp Engine.h)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})

@@ -1,7 +1,5 @@
 #include <regex>
 
-#include "util/exceptions/badurlerror.h"
-#include "util/exceptions/pageisunavailableerror.h"
 #include "http.h"
 
 using namespace std;

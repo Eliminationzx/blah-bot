@@ -60,7 +60,7 @@ void Crawler::startLoop () {
             logger->info ("the page is disallowed");
 
         // TODO: replace for Document class
-        page.links = html.extractLinks (page.html);
+//        page.links = html.extractLinks (page.html);
 
         crawlingQueueMutex.lock ();
         while (!page.links.empty ()) {

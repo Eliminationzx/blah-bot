@@ -3,17 +3,17 @@
 //#include "spdlog/spdlog.h"
 
 #include "src/index/Worker.h"
+#include "Engine.h"
 
 using namespace std;
 //using namespace spdlog;
 
 int main (int argc, char *argv[]) {
     cout << "Hello, world!\n";
-    cout << "Vasya\n";
 
-    Worker w;
+    Engine e;
 
-    w.start ();
+    e.start ();
 
     return 0;
 }
