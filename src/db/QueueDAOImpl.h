@@ -9,18 +9,18 @@
 
 #include <pqxx/pqxx>
 
-#include "IndexQueueDAO.h"
+#include "QueueDAO.h"
 
 /*!
- * IndexQueueDAO for postgresql
+ * QueueDAO for postgresql
  */
-class IndexQueueDAOImpl : public IndexQueueDAO {
+class QueueDAOImpl : public QueueDAO {
     std::shared_ptr<pqxx::connection> conn;
 
 public:
-    IndexQueueDAOImpl ();
-    IndexQueueDAOImpl (std::shared_ptr<pqxx::connection> );
-    ~IndexQueueDAOImpl ();
+    QueueDAOImpl ();
+    QueueDAOImpl (std::shared_ptr<pqxx::connection> );
+    ~QueueDAOImpl ();
 
     std::deque<std::string> getQueue () override;
 

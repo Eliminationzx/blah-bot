@@ -4,23 +4,23 @@
 
 #include <utility>
 
-#include "IndexQueueDAOImpl.h"
+#include "QueueDAOImpl.h"
 
 using namespace std;
 using namespace pqxx;
 
-IndexQueueDAOImpl::IndexQueueDAOImpl ()
+QueueDAOImpl::QueueDAOImpl ()
     // TODO: exception handling
     : conn (make_shared<connection> ("dbname=index user=postgres"))
 {}
 
-IndexQueueDAOImpl::IndexQueueDAOImpl (shared_ptr<connection> newConn)
+QueueDAOImpl::QueueDAOImpl (shared_ptr<connection> newConn)
     : conn (newConn)
 {}
 
-IndexQueueDAOImpl::~IndexQueueDAOImpl () {}
+QueueDAOImpl::~QueueDAOImpl () {}
 
-deque<string> IndexQueueDAOImpl::getQueue () {
+deque<string> QueueDAOImpl::getQueue () {
     work w (*this->conn);
 
     // TODO: error handling
@@ -39,6 +39,6 @@ deque<string> IndexQueueDAOImpl::getQueue () {
     return queue;
 }
 
-void IndexQueueDAOImpl::saveQueue (std::deque<std::string> &) {
+void QueueDAOImpl::saveQueue (std::deque<std::string> &) {
 
 }
