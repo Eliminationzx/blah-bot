@@ -14,8 +14,8 @@ QueueDAOImpl::QueueDAOImpl ()
     : conn (make_shared<connection> ("dbname=index user=postgres"))
 {}
 
-QueueDAOImpl::QueueDAOImpl (shared_ptr<connection> newConn)
-    : conn (newConn)
+QueueDAOImpl::QueueDAOImpl (shared_ptr<connection> newConn, string _tableName)
+    : conn (newConn), tableName (_tableName)
 {}
 
 QueueDAOImpl::~QueueDAOImpl () {}
@@ -25,7 +25,7 @@ deque<string> QueueDAOImpl::getQueue () {
 
     // TODO: error handling
     auto result = w.exec (
-            "SELECT * FROM indexQueue;"
+            "SELECT * FROM " + tableName + ";"
     );
 
     w.commit ();
