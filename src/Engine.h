@@ -7,6 +7,7 @@
 
 #include <memory>
 #include <deque>
+#include <thread>
 
 #include "spdlog/spdlog.h"
 
@@ -25,6 +26,7 @@ class Engine {
     std::shared_ptr<std::deque<Page>> indexingQueue;
     std::deque<Crawler> crawlers;
     std::deque<Worker> indexers;
+    std::deque<std::thread> workers;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "engine",
             "/home/ololosh/pj/cpp/se/indexer/log/engine.log"

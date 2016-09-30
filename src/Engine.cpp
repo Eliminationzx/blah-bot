@@ -22,6 +22,8 @@ void Engine::start () {
     while (running) {
         this_thread::sleep_for (chrono::seconds (1));
 
+        // load the queues from the db
+
         cout << ">>> ";
         cin >> input;
 
@@ -29,7 +31,6 @@ void Engine::start () {
             stop ();
         }
 
-        // TODO:: threads start up
     }
 }
 
