@@ -15,7 +15,7 @@ QueueDAOImpl::QueueDAOImpl ()
 {}
 
 QueueDAOImpl::QueueDAOImpl (shared_ptr<connection> newConn, string _tableName)
-    : conn (newConn), tableName (_tableName)
+    : conn (newConn)
 {}
 
 QueueDAOImpl::~QueueDAOImpl () {}
@@ -25,7 +25,7 @@ deque<string> QueueDAOImpl::getQueue () {
 
     // TODO: error handling
     auto result = w.exec (
-            "SELECT * FROM " + tableName + ";"
+            "SELECT * FROM indexqueue;"
     );
 
     w.commit ();

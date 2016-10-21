@@ -7,7 +7,7 @@ set(HEADER_FILES
         index/IStemmer.h
         index/Document.h
         parser/DocumentParser.h
-        db/QueueDAO.h
+        db/IndexQueueDAO.h
         db/QueueDAOImpl.h
         db/PageDAO.h
         db/Pagedb.h
@@ -15,7 +15,10 @@ set(HEADER_FILES
         crawler/crawler.h
         web/http.h
         web/Page.h
-        web/robotscontroller.h)
+        web/robotscontroller.h
+        Engine.h
+        db/ICrawlerQueueDAO.h
+        db/CrawlerQueueDAO.h)
 
 set(SOURCE_FILES
         parser/HTMLDocumentParser.cpp
@@ -29,6 +32,8 @@ set(SOURCE_FILES
         db/robotstxtDb.cpp
         crawler/crawler.cpp
         web/http.cpp
-        web/robotscontroller.cpp Engine.cpp Engine.h)
+        web/robotscontroller.cpp
+        Engine.cpp
+        db/CrawlerQueueDAO.cpp )
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})

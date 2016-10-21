@@ -23,6 +23,7 @@ class Document {
     std::shared_ptr<DocumentParser> parser;
 
     unsigned long id = 0;
+    std::string address;
     std::string html;
     std::string text;
     std::vector<std::string> tokens;
@@ -32,6 +33,8 @@ public:
     Document () = delete;
     Document (std::shared_ptr<DocumentParser> );
     ~Document ();
+    Document (const Document& ) = default;
+    Document (Document&& ) = default;
 
 
     /*!
@@ -59,6 +62,15 @@ public:
 
     const std::vector<std::string> getTokens () const;
     void setTokens (const std::vector<std::string> &tokens);
+
+
+    const std::string &getAddress () const {
+        return address;
+    }
+
+    void setAddress (const std::string &address) {
+        Document::address = address;
+    }
 
     bool isValid () const;
 

@@ -8,9 +8,10 @@
 #include <deque>
 #include <string>
 
-class QueueDAO {
+
+class IndexQueueDAO {
 public:
-    virtual ~QueueDAO () {};
+    virtual ~IndexQueueDAO () {};
 
     virtual std::deque<std::string> getQueue () = 0;
     virtual void saveQueue (std::deque<std::string>& ) = 0;

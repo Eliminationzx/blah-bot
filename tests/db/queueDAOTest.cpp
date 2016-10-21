@@ -21,12 +21,3 @@ TEST (crawlerQueue, shouldGetTheQueue) {
     EXPECT_THAT (crawlerQueueDb.getQueue (), ::testing::ContainerEq (expectedQueue));
 }
 
-TEST (indexQueue, shouldGetTheQueue) {
-    auto conn = make_shared<pqxx::connection> ("dbname=index user=postgres");
-    QueueDAOImpl crawlerQueueDb (conn, "indexqueue");
-    deque<string> expectedQueue {
-            "https://en.wikipedia.org"
-    };
-
-    EXPECT_THAT (crawlerQueueDb.getQueue (), ::testing::ContainerEq (expectedQueue));
-}

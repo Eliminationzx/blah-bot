@@ -9,18 +9,17 @@
 
 #include <pqxx/pqxx>
 
-#include "QueueDAO.h"
+#include "IndexQueueDAO.h"
 
 /*!
- * QueueDAO for postgresql
+ * IndexQueueDAO for postgresql
  */
-class QueueDAOImpl : public QueueDAO {
+class QueueDAOImpl : public IndexQueueDAO {
     std::shared_ptr<pqxx::connection> conn;
     /*!
      * It's used in sql queries so that this class can be used
      * for loading different queries
      */
-    std::string tableName;
 
 public:
     QueueDAOImpl ();
@@ -34,10 +33,6 @@ public:
 
     void setConn (const std::shared_ptr<pqxx::connection> &conn) {
         QueueDAOImpl::conn = conn;
-    }
-
-    void setTableName (const std::string &tableName) {
-        QueueDAOImpl::tableName = tableName;
     }
 };
 
