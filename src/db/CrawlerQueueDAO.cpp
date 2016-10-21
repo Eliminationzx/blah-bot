@@ -13,7 +13,7 @@ CrawlerQueueDAO::CrawlerQueueDAO (std::shared_ptr<pqxx::connection> c)
 
 #include <iostream>
 
-deque<Document> CrawlerQueueDAO::loadQueue () {
+deque<string> CrawlerQueueDAO::loadQueue () {
     work w (*conn);
 
     auto result = w.exec (
@@ -21,19 +21,23 @@ deque<Document> CrawlerQueueDAO::loadQueue () {
     );
     w.commit ();
 
-    deque<Document> queue;
-    Document tmpDoc (make_shared<HTMLDocumentParser> ());
+    deque<string> queue;
 
     for (auto const& r : result) {
-        tmpDoc.setAddress (r[0].as<char const*> ());
-
-        queue.push_back (tmpDoc);
+        queue.push_back (r[0].as<char const*> ());
     }
 
     return queue;
 }
 
-void CrawlerQueueDAO::storeQueue (const std::deque<Document>& queue) {
+void CrawlerQueueDAO::storeQueue (const std::deque<string>& queue) {
+    conn->prepare ("insert", "INSERT INTO crawlerqueue VALUES ($1)");
+    work w (*conn);
 
+    for (const auto& url : queue) {
+        w.prepared ("insert") (url).exec ();
+    }
+
+    w.commit ();
 }
 

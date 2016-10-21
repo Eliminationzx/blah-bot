@@ -19,9 +19,9 @@ public:
     CrawlerQueueDAO (std::shared_ptr<pqxx::connection> );
     ~CrawlerQueueDAO () {};
 
-    std::deque<Document> loadQueue () override;
+    std::deque<std::string> loadQueue () override;
 
-    void storeQueue (const std::deque<Document>& ) override;
+    void storeQueue (const std::deque<std::string>& ) override;
 };
 
 

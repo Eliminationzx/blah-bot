@@ -3,6 +3,7 @@
 //
 
 #include <string>
+#include <deque>
 
 #include <gmock/gmock.h>
 #include <pqxx/pqxx>
@@ -12,16 +13,19 @@
 using namespace std;
 using namespace pqxx;
 
-
-TEST (crawlerQueue, shouldLoadQueue) {
+TEST (crawlerQueue, shouldStoreQueue) {
     CrawlerQueueDAO crawlerQueueDAO (
-            make_shared<connection> ("dbname=index user=postgres")
+            make_shared<connection> ("dbname=index_test user=postgres")
     );
-    string expectedAddress = "https://en.wikipedia.org";
+    deque<string> sourceQueue {
+            "page 1",
+            "page 2",
+            "page 3"
+    };
+
+    crawlerQueueDAO.storeQueue (sourceQueue);
 
     auto queue = crawlerQueueDAO.loadQueue ();
 
-    auto address = queue.front ().getAddress ();
-
-    ASSERT_EQ (address, expectedAddress);
+    EXPECT_THAT (queue, ::testing::ContainerEq (sourceQueue));
 }
