@@ -12,13 +12,16 @@
 using namespace std;
 using namespace pqxx;
 
+
 TEST (crawlerQueue, shouldLoadQueue) {
     CrawlerQueueDAO crawlerQueueDAO (
             make_shared<connection> ("dbname=index user=postgres")
     );
-    string expectedAddress ("https://en.wikpedia.org/wiki/Main_Page");
+    string expectedAddress = "https://en.wikipedia.org";
 
     auto queue = crawlerQueueDAO.loadQueue ();
 
-    ASSERT_EQ (queue.front ().getAddress (), expectedAddress);
+    auto address = queue.front ().getAddress ();
+
+    ASSERT_EQ (address, expectedAddress);
 }

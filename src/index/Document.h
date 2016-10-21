@@ -68,7 +68,7 @@ public:
         return address;
     }
 
-    void setAddress (const std::string &address) {
+    void setAddress (std::string address) {
         Document::address = address;
     }
 

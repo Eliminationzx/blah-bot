@@ -11,6 +11,8 @@ CrawlerQueueDAO::CrawlerQueueDAO (std::shared_ptr<pqxx::connection> c)
     : conn (c)
 {}
 
+#include <iostream>
+
 deque<Document> CrawlerQueueDAO::loadQueue () {
     work w (*conn);
 
@@ -24,7 +26,6 @@ deque<Document> CrawlerQueueDAO::loadQueue () {
 
     for (auto const& r : result) {
         tmpDoc.setAddress (r[0].as<char const*> ());
-        tmpDoc.setHtml (r[1].as<char const*> ());
 
         queue.push_back (tmpDoc);
     }
