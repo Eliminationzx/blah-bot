@@ -6,7 +6,7 @@
 #include <thread>
 #include <chrono>
 
-#include "db/QueueDAOImpl.h"
+#include "db/IndexQueueDAO.h"
 #include "db/Pagedb.h"
 #include "db/robotstxtDb.h"
 #include "web/Page.h"
@@ -19,7 +19,7 @@ Crawler::Crawler ()
     : http (make_shared<HTTP> ()),
       robotstxt (make_shared<RobotsController> (http, make_shared<RobotstxtDb> ()))
 {
-    this->queuedb = new QueueDAOImpl ();
+    this->queuedb = new IndexQueueDAO ();
     pagedb = new Pagedb ();
 }
 

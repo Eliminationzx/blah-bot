@@ -2,20 +2,39 @@
 // Created by user on 8/16/16.
 //
 
-#ifndef CRAWLER_INDEXQUEUEDAO_H
-#define CRAWLER_INDEXQUEUEDAO_H
+#ifndef CRAWLER_INDEXQUEUEDAOIMPL_H
+#define CRAWLER_INDEXQUEUEDAOIMPL_H
 
-#include <deque>
-#include <string>
+#include <memory>
 
+#include <pqxx/pqxx>
 
-class IndexQueueDAO {
+#include "IIndexQueueDAO.h"
+#include "index/Document.h"
+
+/*!
+ * IIndexQueueDAO for postgresql
+ */
+class IndexQueueDAO : public IIndexQueueDAO {
+    std::shared_ptr<pqxx::connection> conn;
+    /*!
+     * It's used in sql queries so that this class can be used
+     * for loading different queries
+     */
+
 public:
-    virtual ~IndexQueueDAO () {};
+    IndexQueueDAO ();
+    IndexQueueDAO (std::shared_ptr<pqxx::connection> );
+    ~IndexQueueDAO ();
 
-    virtual std::deque<std::string> getQueue () = 0;
-    virtual void saveQueue (std::deque<std::string>& ) = 0;
+    std::deque<Document> getQueue () override;
+
+    void saveQueue (std::deque<Document>& ) override;
+
+    void setConn (const std::shared_ptr<pqxx::connection> &conn) {
+        IndexQueueDAO::conn = conn;
+    }
 };
 
-#endif //CRAWLER_INDEXQUEUEDAO_H
 
+#endif //CRAWLER_INDEXQUEUEDAOIMPL_H

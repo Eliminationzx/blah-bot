@@ -14,7 +14,7 @@
 #include <pqxx/pqxx>
 #include <spdlog/spdlog.h>
 
-#include <db/IndexQueueDAO.h>
+#include <db/IIndexQueueDAO.h>
 #include "web/http.h"
 #include "web/robotscontroller.h"
 #include "db/PageDAO.h"
@@ -28,7 +28,7 @@ class Crawler {
     std::shared_ptr<web::HTTP> http;
     std::shared_ptr<web::RobotsController> robotstxt;
 //    std::shared_ptr<pqxx::connection> indexDb;
-    IndexQueueDAO* queuedb;
+    IIndexQueueDAO* queuedb;
     PageDAO* pagedb;
     std::mutex crawlingQueueMutex;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;

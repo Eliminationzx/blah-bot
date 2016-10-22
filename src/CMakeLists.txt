@@ -7,8 +7,8 @@ set(HEADER_FILES
         index/IStemmer.h
         index/Document.h
         parser/DocumentParser.h
+        db/IIndexQueueDAO.h
         db/IndexQueueDAO.h
-        db/QueueDAOImpl.h
         db/PageDAO.h
         db/Pagedb.h
         db/robotstxtDb.h
@@ -27,7 +27,7 @@ set(SOURCE_FILES
         index/Document.cpp
         db/DocumentDAO.cpp
         db/DocumentDAO.h
-        db/QueueDAOImpl.cpp
+        db/IndexQueueDAO.cpp
         db/Pagedb.cpp
         db/robotstxtDb.cpp
         crawler/crawler.cpp
