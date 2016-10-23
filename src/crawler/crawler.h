@@ -17,7 +17,7 @@
 #include <db/IIndexQueueDAO.h>
 #include "web/http.h"
 #include "web/robotscontroller.h"
-#include "db/PageDAO.h"
+#include "index/Document.h"
 
 /*!
  * Manages the indexing loop.
@@ -29,11 +29,10 @@ class Crawler {
     std::shared_ptr<web::RobotsController> robotstxt;
 //    std::shared_ptr<pqxx::connection> indexDb;
     IIndexQueueDAO* queuedb;
-    PageDAO* pagedb;
     std::mutex crawlingQueueMutex;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
     std::mutex indexingQueueMutex;
-    std::shared_ptr<std::deque<Page>> indexingQueue;
+    std::shared_ptr<std::deque<Document>> indexingQueue;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "crawler",
             "/home/ololosh/pj/cpp/se/crawler/log/crawler.log"

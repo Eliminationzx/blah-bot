@@ -9,12 +9,9 @@ set(HEADER_FILES
         parser/DocumentParser.h
         db/IIndexQueueDAO.h
         db/IndexQueueDAO.h
-        db/PageDAO.h
-        db/Pagedb.h
         db/robotstxtDb.h
         crawler/crawler.h
         web/http.h
-        web/Page.h
         web/robotscontroller.h
         Engine.h
         db/ICrawlerQueueDAO.h
@@ -28,7 +25,6 @@ set(SOURCE_FILES
         db/DocumentDAO.cpp
         db/DocumentDAO.h
         db/IndexQueueDAO.cpp
-        db/Pagedb.cpp
         db/robotstxtDb.cpp
         crawler/crawler.cpp
         web/http.cpp

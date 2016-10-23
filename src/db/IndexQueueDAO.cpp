@@ -50,7 +50,10 @@ void IndexQueueDAO::saveQueue (std::deque<Document>& queue) {
     work w (*conn);
 
     for (const auto& item : queue) {
-        w.prepared ("insertCrawlerQueue") (item.getAddress (), item.getHtml ()).exec ();
+        w.prepared ("insertCrawlerQueue")
+                (item.getAddress ())
+                (item.getHtml ())
+                .exec ();
     }
 
     w.commit ();

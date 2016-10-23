@@ -11,7 +11,6 @@
 
 #include "spdlog/spdlog.h"
 
-#include "web/Page.h"
 #include "crawler/crawler.h"
 #include "index/Worker.h"
 
@@ -23,7 +22,7 @@ class Engine {
     // TODO: crawlingQueue source
     // TODO: indexingQueue source
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
-    std::shared_ptr<std::deque<Page>> indexingQueue;
+//    std::shared_ptr<std::deque<Page>> indexingQueue;
     std::deque<Crawler> crawlers;
     std::deque<Worker> indexers;
     std::deque<std::thread> workers;
