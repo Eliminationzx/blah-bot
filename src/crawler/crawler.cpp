@@ -17,63 +17,87 @@ Crawler::Crawler ()
     : http (make_shared<HTTP> ()),
       robotstxt (make_shared<RobotsController> (http, make_shared<RobotstxtDb> ()))
 {
-    this->queuedb = new IndexQueueDAO ();
 }
 
-Crawler::~Crawler () {
-    delete queuedb;
-}
+Crawler::~Crawler () { }
 
 void Crawler::init () {
     logger->info ("Crawler initialization");
+}
 
-//    this->crawlingQueue = this->queuedb->getQueue ();
+void Crawler::setCrawlingQueue (std::shared_ptr<std::deque<std::string>> queue) {
+    this->crawlingQueue = queue;
+}
+
+void Crawler::setIndexingQueue (std::shared_ptr<std::deque<Document>> queue) {
+    this->indexingQueue = queue;
 }
 
 void Crawler::operator () () {
-    if (crawlingQueue == nullptr)
+    if (crawlingQueue == nullptr) {
+        logger->error ("Unable to start: crawling queue is not specified.");
+
         return;
+    }
+
+    if (indexingQueue == nullptr) {
+        logger->error ("Unable to start: indexing queue is not specified.");
+
+        return;
+    }
+
+    running = true;
 
     startLoop ();
 }
 
 void Crawler::startLoop () {
-    string htmlroot = "/home/ololosh/pj/cpp/se/sourceDir/";
+    auto htmlParser = make_shared<HTMLDocumentParser> ();
+    Document htmlDocument (htmlParser);
+    string address;
+    vector<string> links;
 
-    while (!this->crawlingQueue->empty ()) {
-//        page.address = crawlingQueue->front ();
+    while (running) {
+        address = move (crawlingQueue->front ());
 
         crawlingQueueMutex.lock ();
         crawlingQueue->pop_front ();
         crawlingQueueMutex.unlock ();
 
-//        logger->info ("downloading page from: {0}", page.address);
+        logger->info ("downloading page from: {0}", address);
 
-//        if (robotstxt->allowed (page.address))
-//            page.html = http->get (page.address);
-//        else
-//            logger->info ("the page is disallowed");
+        if (robotstxt->allowed (address)) {
+            htmlDocument.setHtml (move (http->get (address)));
 
-        // TODO: replace for Document class
-//        page.links = html.extractLinks (page.html);
+            // If the document is not valid just go to the next in the queue
+            if (!htmlDocument.isValid ())
+                continue;
+
+        } else {
+            logger->info ("the page is disallowed");
+        }
+
+        htmlDocument.setAddress (move (address));
+
+        links = move (htmlParser->extractLinks (htmlDocument.getHtml ()));
 
         crawlingQueueMutex.lock ();
-//        while (!page.links.empty ()) {
-//            crawlingQueue->push_back (move (page.links.back ()));
-//            page.links.pop_back ();
-//        }
+        while (!links.empty ()) {
+            crawlingQueue->push_back (move (links.back ()));
+            links.pop_back ();
+        }
         crawlingQueueMutex.unlock ();
 
-//        pagedb->saveURL (page);
-
-        // TODO: replace copying for moving
-//        indexingQueueMutex.lock ();
-//        indexingQueue->push_back (page);
-//        indexingQueueMutex.unlock ();
+        indexingQueueMutex.lock ();
+        indexingQueue->push_back (htmlDocument);
+        indexingQueueMutex.unlock ();
 
         this_thread::sleep_for (std::chrono::milliseconds (500));
     }
-
-//    queuedb->saveQueue (*crawlingQueue);
 }
 
+void Crawler::stop () {
+    logger->info ("Stoping the crawler");
+
+    running = false;
+}

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 //#include "spdlog/spdlog.h"
 
@@ -14,6 +16,10 @@ int main (int argc, char *argv[]) {
     Engine e;
 
     e.start ();
+
+    this_thread::sleep_for (chrono::seconds (3)):
+
+    e.stop ();
 
     return 0;
 }

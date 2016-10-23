@@ -10,19 +10,23 @@
 #include <thread>
 
 #include "spdlog/spdlog.h"
+#include <pqxx/pqxx>
 
 #include "crawler/crawler.h"
 #include "index/Worker.h"
+#include "index/Document.h"
+#include "db/CrawlerQueueDAO.h"
+#include "db/IndexQueueDAO.h"
 
 /*!
  * Starts up crawling and indexing workers.
  * Manages the load balancing between the workers
  */
 class Engine {
-    // TODO: crawlingQueue source
-    // TODO: indexingQueue source
+    ICrawlerQueueDAO* crawlerQueueDAO = nullptr;
+    IIndexQueueDAO* indexQueueDAO = nullptr;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
-//    std::shared_ptr<std::deque<Page>> indexingQueue;
+    std::shared_ptr<std::deque<Document>> indexingQueue;
     std::deque<Crawler> crawlers;
     std::deque<Worker> indexers;
     std::deque<std::thread> workers;
@@ -33,7 +37,7 @@ class Engine {
     bool running = false;
 
 public:
-    Engine () = default;
+    Engine ();
     Engine (const Engine& ) = delete;
     Engine (Engine&& ) = delete;
     ~Engine () = default;

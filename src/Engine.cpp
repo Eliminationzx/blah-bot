@@ -9,7 +9,11 @@
 
 #include "Engine.h"
 
+using namespace pqxx;
 using namespace std;
+
+Engine::Engine () {
+}
 
 // TODO: init implementation
 void Engine::start () {
@@ -18,26 +22,38 @@ void Engine::start () {
     running = true;
 
     string input;
+    auto posgresConn = make_shared<connection> (
+            "user=postgres dbname=index_test"
+    );
 
-    while (running) {
-        this_thread::sleep_for (chrono::seconds (1));
+    indexQueueDAO = new IndexQueueDAO (posgresConn);
+    crawlerQueueDAO = new CrawlerQueueDAO (posgresConn);
+    crawlingQueue = make_shared<deque<string>> ();
+    indexingQueue = make_shared<deque<Document>> ();
 
-        // load the queues from the db
+    *crawlingQueue = crawlerQueueDAO->loadQueue ();
+    *indexingQueue = indexQueueDAO->getQueue ();
 
-        cout << ">>> ";
-        cin >> input;
+    Crawler c;
+    c.setCrawlingQueue (crawlingQueue);
+    c.setIndexingQueue (indexingQueue);
 
-        if (input == "quit") {
-            stop ();
-        }
+    crawlers.push_back (c);
 
+    for (const auto& e : crawlers) {
+        workers.push_back (thread (e));
     }
 }
 
 void Engine::stop () {
     logger->debug  (__PRETTY_FUNCTION__);
 
-    running = false;
+    for (auto& c : crawlers) {
+        c.stop ();
+    }
+
+    crawlerQueueDAO->storeQueue (*crawlingQueue);
+    indexQueueDAO->saveQueue (*indexingQueue);
 }
 
 

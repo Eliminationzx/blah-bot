@@ -27,8 +27,6 @@
 class Crawler {
     std::shared_ptr<web::HTTP> http;
     std::shared_ptr<web::RobotsController> robotstxt;
-//    std::shared_ptr<pqxx::connection> indexDb;
-    IIndexQueueDAO* queuedb;
     std::mutex crawlingQueueMutex;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
     std::mutex indexingQueueMutex;
@@ -37,10 +35,15 @@ class Crawler {
             "crawler",
             "/home/ololosh/pj/cpp/se/crawler/log/crawler.log"
     );
+    bool running = false;
 
 public:
     Crawler ();
     ~Crawler ();
+
+    void setCrawlingQueue (std::shared_ptr<std::deque<std::string>> );
+
+    void setIndexingQueue (std::shared_ptr<std::deque<Document>> );
 
     void init ();
 
@@ -50,6 +53,8 @@ public:
      * starts the indexing loop
      */
     void startLoop ();
+
+    void stop ();
 };
 
 
