@@ -4,7 +4,6 @@ set(HEADER_FILES
         parser/HTMLDocumentParser.h
         index/Worker.h
         index/Stemmer.h
-        index/IStemmer.h
         index/Document.h
         parser/DocumentParser.h
         db/IIndexQueueDAO.h

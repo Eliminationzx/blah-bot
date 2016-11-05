@@ -27,13 +27,13 @@
 class Crawler {
     std::shared_ptr<web::HTTP> http;
     std::shared_ptr<web::RobotsController> robotstxt;
-    std::mutex crawlingQueueMutex;
+    static std::mutex crawlingQueueMutex;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
-    std::mutex indexingQueueMutex;
+    static std::mutex indexingQueueMutex;
     std::shared_ptr<std::deque<Document>> indexingQueue;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "crawler",
-            "/home/ololosh/pj/cpp/se/crawler/log/crawler.log"
+            "/home/ololosh/pj/cpp/se/indexer/log/crawler.log"
     );
     bool running = false;
 

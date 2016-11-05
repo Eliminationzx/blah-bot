@@ -13,6 +13,9 @@
 using namespace std;
 using namespace web;
 
+mutex Crawler::crawlingQueueMutex;
+mutex Crawler::indexingQueueMutex;
+
 Crawler::Crawler ()
     : http (make_shared<HTTP> ()),
       robotstxt (make_shared<RobotsController> (http, make_shared<RobotstxtDb> ()))
@@ -51,14 +54,26 @@ void Crawler::operator () () {
     startLoop ();
 }
 
-void Crawler::startLoop () {
+void Crawler::startLoop ()
+{
+    logger->info ("Crawler has started: {}", this_thread::get_id ());
+
     auto htmlParser = make_shared<HTMLDocumentParser> ();
     Document htmlDocument (htmlParser);
     string address;
     vector<string> links;
 
     while (running) {
-        address = move (crawlingQueue->front ());
+        // КОСТЫЛЬ
+        // TODO: if the queue is empty - wait until there is a link to crawl (idle state)
+        if (crawlingQueue->empty ())
+        {
+            logger->info ("The queue is emtpy, exiciting the loop");
+
+            return;
+        }
+
+        address = string (move (crawlingQueue->front ()));
 
         crawlingQueueMutex.lock ();
         crawlingQueue->pop_front ();
@@ -69,9 +84,11 @@ void Crawler::startLoop () {
         if (robotstxt->allowed (address)) {
             htmlDocument.setHtml (move (http->get (address)));
 
+            logger->info ("the page has been downloaded");
+
             // If the document is not valid just go to the next in the queue
-            if (!htmlDocument.isValid ())
-                continue;
+//            if (!htmlDocument.isValid ())
+//                continue;
 
         } else {
             logger->info ("the page is disallowed");
@@ -80,6 +97,8 @@ void Crawler::startLoop () {
         htmlDocument.setAddress (move (address));
 
         links = move (htmlParser->extractLinks (htmlDocument.getHtml ()));
+
+        logger->info ("Extracting {} links.", links.size ());
 
         crawlingQueueMutex.lock ();
         while (!links.empty ()) {
@@ -91,6 +110,8 @@ void Crawler::startLoop () {
         indexingQueueMutex.lock ();
         indexingQueue->push_back (htmlDocument);
         indexingQueueMutex.unlock ();
+
+        logger->info ("The page has been added to the indexing queue: {}", htmlDocument.getAddress ());
 
         this_thread::sleep_for (std::chrono::milliseconds (500));
     }

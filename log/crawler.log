@@ -1,0 +1,11 @@
+[2016-11-05 16:35:00.552] [crawler] [info] Crawler has started: 140654666749696
+[2016-11-05 16:35:00.552] [crawler] [info] downloading page from: https://en.wikipedia.org/wiki/Main_Page
+[2016-11-05 16:35:01.724] [crawler] [info] the page has been downloaded
+[2016-11-05 16:35:01.737] [crawler] [info] Extracting 323 links.
+[2016-11-05 16:35:01.741] [crawler] [info] The page has been added to the indexing queue: https://en.wikipedia.org/wiki/Main_Page
+[2016-11-05 16:35:02.241] [crawler] [info] downloading page from: //www.mediawiki.org/
+[2016-11-05 16:35:02.241] [crawler] [info] the page has been downloaded
+[2016-11-05 16:35:02.241] [crawler] [info] Extracting 0 links.
+[2016-11-05 16:35:02.241] [crawler] [info] The page has been added to the indexing queue: //www.mediawiki.org/
+[2016-11-05 16:35:02.741] [crawler] [info] downloading page from: https://wikimediafoundation.org/
+[2016-11-05 16:35:03.552] [crawler] [info] Stoping the crawler

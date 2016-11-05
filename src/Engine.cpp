@@ -15,9 +15,8 @@ using namespace std;
 Engine::Engine () {
 }
 
-// TODO: init implementation
 void Engine::start () {
-    logger->debug (__PRETTY_FUNCTION__);
+    logger->info (__PRETTY_FUNCTION__);
 
     running = true;
 
@@ -33,6 +32,9 @@ void Engine::start () {
 
     *crawlingQueue = crawlerQueueDAO->loadQueue ();
     *indexingQueue = indexQueueDAO->getQueue ();
+
+    logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
+    logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
 
     Crawler c;
     c.setCrawlingQueue (crawlingQueue);

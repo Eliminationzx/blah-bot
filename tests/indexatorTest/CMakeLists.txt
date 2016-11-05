@@ -5,4 +5,6 @@ add_executable(runIndexatorTest
         stemmingTest.cpp)
 
 target_link_libraries(runIndexatorTest gmock gmock_main)
+target_link_libraries(runIndexatorTest gumbo)
+target_link_libraries(runIndexatorTest boost_system boost_filesystem)
 target_link_libraries(runIndexatorTest src)

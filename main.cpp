@@ -17,7 +17,7 @@ int main (int argc, char *argv[]) {
 
     e.start ();
 
-    this_thread::sleep_for (chrono::seconds (3)):
+    this_thread::sleep_for (chrono::seconds (3));
 
     e.stop ();
 

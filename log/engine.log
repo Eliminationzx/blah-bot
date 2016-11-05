@@ -1,0 +1,61 @@
+[2016-11-05 16:05:19.158] [engine] [info] void Engine::start()
+[2016-11-05 16:06:32.217] [engine] [info] void Engine::start()
+[2016-11-05 16:06:32.220] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:06:32.220] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:06:36.018] [engine] [info] void Engine::start()
+[2016-11-05 16:06:36.031] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:06:36.031] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:09:03.984] [engine] [info] void Engine::start()
+[2016-11-05 16:09:03.998] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:09:03.998] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:12:06.025] [engine] [info] void Engine::start()
+[2016-11-05 16:12:06.033] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:12:06.033] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:12:25.163] [engine] [info] void Engine::start()
+[2016-11-05 16:12:25.166] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:12:25.166] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:13:08.029] [engine] [info] void Engine::start()
+[2016-11-05 16:13:08.032] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:13:08.032] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:16:46.614] [engine] [info] void Engine::start()
+[2016-11-05 16:16:46.620] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:16:46.620] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:17:02.496] [engine] [info] void Engine::start()
+[2016-11-05 16:17:02.499] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:17:02.499] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:19:10.003] [engine] [info] void Engine::start()
+[2016-11-05 16:19:10.009] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:19:10.009] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:21:32.407] [engine] [info] void Engine::start()
+[2016-11-05 16:21:32.413] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:21:32.413] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:22:18.811] [engine] [info] void Engine::start()
+[2016-11-05 16:22:18.814] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:22:18.814] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:23:33.224] [engine] [info] void Engine::start()
+[2016-11-05 16:23:33.227] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:23:33.227] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:23:45.554] [engine] [info] void Engine::start()
+[2016-11-05 16:23:45.561] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:23:45.561] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:28:33.952] [engine] [info] void Engine::start()
+[2016-11-05 16:28:33.955] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:28:33.955] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:29:39.636] [engine] [info] void Engine::start()
+[2016-11-05 16:29:39.642] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:29:39.642] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:29:55.372] [engine] [info] void Engine::start()
+[2016-11-05 16:29:55.376] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:29:55.376] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:30:03.383] [engine] [info] void Engine::start()
+[2016-11-05 16:30:03.386] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:30:03.386] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:32:05.934] [engine] [info] void Engine::start()
+[2016-11-05 16:32:05.953] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:32:05.953] [engine] [info] Loaded indexingQueue: 1 elements.
+[2016-11-05 16:34:18.523] [engine] [info] void Engine::start()
+[2016-11-05 16:34:18.526] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:34:18.526] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 16:35:00.546] [engine] [info] void Engine::start()
+[2016-11-05 16:35:00.549] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:35:00.549] [engine] [info] Loaded indexingQueue: 0 elements.
