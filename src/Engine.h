@@ -13,7 +13,7 @@
 #include <pqxx/pqxx>
 
 #include "crawler/crawler.h"
-#include "index/Worker.h"
+#include "index/Indexer.h"
 #include "index/Document.h"
 #include "db/CrawlerQueueDAO.h"
 #include "db/IndexQueueDAO.h"
@@ -28,7 +28,7 @@ class Engine {
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
     std::shared_ptr<std::deque<Document>> indexingQueue;
     std::deque<Crawler> crawlers;
-    std::deque<Worker> indexers;
+    std::deque<Indexer> indexers;
     std::deque<std::thread> workers;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "engine",

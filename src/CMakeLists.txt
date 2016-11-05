@@ -2,7 +2,7 @@ project(src C CXX)
 
 set(HEADER_FILES
         parser/HTMLDocumentParser.h
-        index/Worker.h
+        index/Indexer.h
         index/Stemmer.h
         index/Document.h
         parser/DocumentParser.h
@@ -18,7 +18,7 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         parser/HTMLDocumentParser.cpp
-        index/Worker.cpp
+        index/Indexer.cpp
         index/Stemmer.cpp
         index/Document.cpp
         db/DocumentDAO.cpp

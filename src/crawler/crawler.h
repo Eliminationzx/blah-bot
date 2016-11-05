@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <mutex>
+#include <iostream>
 
 #include <pqxx/pqxx>
 #include <spdlog/spdlog.h>
@@ -25,25 +26,25 @@
  * takes a page address from the queue and loads contents of the page
  */
 class Crawler {
+    uint64_t id;
     std::shared_ptr<web::HTTP> http;
     std::shared_ptr<web::RobotsController> robotstxt;
     static std::mutex crawlingQueueMutex;
     std::shared_ptr<std::deque<std::string>> crawlingQueue;
-    static std::mutex indexingQueueMutex;
+    std::shared_ptr<std::mutex> indexingQueueMutex;
     std::shared_ptr<std::deque<Document>> indexingQueue;
-    std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
-            "crawler",
-            "/home/ololosh/pj/cpp/se/indexer/log/crawler.log"
-    );
+    std::shared_ptr<spdlog::logger> logger;
     bool running = false;
 
 public:
-    Crawler ();
+    Crawler (uint64_t );
     ~Crawler ();
 
     void setCrawlingQueue (std::shared_ptr<std::deque<std::string>> );
 
     void setIndexingQueue (std::shared_ptr<std::deque<Document>> );
+
+    void setIndexingQueueMutex (std::shared_ptr<std::mutex> );
 
     void init ();
 

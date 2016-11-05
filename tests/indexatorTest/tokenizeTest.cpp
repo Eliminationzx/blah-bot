@@ -4,11 +4,11 @@
 
 #include <gmock/gmock.h>
 
-#include "index/Worker.h"
+#include "index/Indexer.h"
 #include "indexatorHeader.h"
 
 TEST (indexator, shouldSplitIntoTokens) {
-    Worker i;
+    Indexer i;
 
     EXPECT_THAT (i.tokenize (pageText), ::testing::ContainerEq (expectedTokens));
 }

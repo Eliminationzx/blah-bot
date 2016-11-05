@@ -59,3 +59,15 @@
 [2016-11-05 16:35:00.546] [engine] [info] void Engine::start()
 [2016-11-05 16:35:00.549] [engine] [info] Loaded crawlingQueue: 1 elements.
 [2016-11-05 16:35:00.549] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 16:49:20.042] [engine] [info] void Engine::start()
+[2016-11-05 16:49:20.051] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:49:20.051] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 16:49:43.970] [engine] [info] void Engine::start()
+[2016-11-05 16:49:43.973] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:49:43.973] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 16:58:15.175] [engine] [info] void Engine::start()
+[2016-11-05 16:58:15.178] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:58:15.178] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 16:59:55.432] [engine] [info] void Engine::start()
+[2016-11-05 16:59:55.436] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 16:59:55.436] [engine] [info] Loaded indexingQueue: 0 elements.

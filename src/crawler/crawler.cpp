@@ -14,12 +14,17 @@ using namespace std;
 using namespace web;
 
 mutex Crawler::crawlingQueueMutex;
-mutex Crawler::indexingQueueMutex;
 
-Crawler::Crawler ()
+Crawler::Crawler (uint64_t id)
     : http (make_shared<HTTP> ()),
       robotstxt (make_shared<RobotsController> (http, make_shared<RobotstxtDb> ()))
 {
+    this->id = id;
+
+    logger = spdlog::basic_logger_mt (
+            "crawler #" + std::to_string (id),
+            "/home/ololosh/pj/cpp/se/indexer/log/crawler.log"
+    );
 }
 
 Crawler::~Crawler () { }
@@ -34,6 +39,11 @@ void Crawler::setCrawlingQueue (std::shared_ptr<std::deque<std::string>> queue) 
 
 void Crawler::setIndexingQueue (std::shared_ptr<std::deque<Document>> queue) {
     this->indexingQueue = queue;
+}
+
+void Crawler::setIndexingQueueMutex (shared_ptr<mutex> m)
+{
+    indexingQueueMutex = m;
 }
 
 void Crawler::operator () () {
@@ -107,9 +117,9 @@ void Crawler::startLoop ()
         }
         crawlingQueueMutex.unlock ();
 
-        indexingQueueMutex.lock ();
+        indexingQueueMutex->lock ();
         indexingQueue->push_back (htmlDocument);
-        indexingQueueMutex.unlock ();
+        indexingQueueMutex->unlock ();
 
         logger->info ("The page has been added to the indexing queue: {}", htmlDocument.getAddress ());
 

@@ -17,20 +17,27 @@
 /*!
  * Manages indexing loop
  */
-class Worker {
+class Indexer {
+    uint64_t id;
+    std::shared_ptr<std::mutex> indexingQueueMutex;
+    std::shared_ptr<std::deque<Document>> indexingQueue;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "worker",
             "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
     );
 
 public:
-    Worker ();
-    ~Worker ();
+    Indexer (uint64_t);
+    ~Indexer ();
 
-    Worker (Worker& ) = delete;
-    Worker& operator = (const Worker& ) = delete;
-    Worker (Worker&& ) = default;
-    Worker& operator = (Worker&& ) = default;
+    Indexer (Indexer& ) = delete;
+    Indexer& operator = (const Indexer& ) = delete;
+    Indexer (Indexer&& ) = default;
+    Indexer& operator = (Indexer&& ) = default;
+
+    void setIndexingQueue (std::shared_ptr<std::deque<Document>> );
+
+    void setIndexingQueueMutex (std::shared_ptr<std::mutex> );
 
     /*!
      * \brief start indexing a web page

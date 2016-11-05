@@ -19,8 +19,8 @@ void Engine::start () {
     logger->info (__PRETTY_FUNCTION__);
 
     running = true;
+    int numberOfCrawlers = 2;
 
-    string input;
     auto posgresConn = make_shared<connection> (
             "user=postgres dbname=index_test"
     );
@@ -33,14 +33,18 @@ void Engine::start () {
     *crawlingQueue = crawlerQueueDAO->loadQueue ();
     *indexingQueue = indexQueueDAO->getQueue ();
 
+    auto indexingQueueMutex = make_shared<mutex> ();
+
     logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
     logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
 
-    Crawler c;
-    c.setCrawlingQueue (crawlingQueue);
-    c.setIndexingQueue (indexingQueue);
-
-    crawlers.push_back (c);
+    for (int i = 0; i < numberOfCrawlers; ++i)
+    {
+        crawlers.push_back (Crawler (i));
+        crawlers.back ().setCrawlingQueue (crawlingQueue);
+        crawlers.back ().setIndexingQueue (indexingQueue);
+        crawlers.back ().setIndexingQueueMutex (indexingQueueMutex);
+    }
 
     for (const auto& e : crawlers) {
         workers.push_back (thread (e));

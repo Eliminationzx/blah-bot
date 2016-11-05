@@ -9,30 +9,42 @@
 
 #include "Document.h"
 #include "parser/HTMLDocumentParser.h"
-#include "Worker.h"
+#include "Indexer.h"
 
 using namespace std;
 using namespace boost::filesystem;
 
-Worker::Worker () {
+Indexer::Indexer (uint64_t id)
+{
+    logger = spdlog::basic_logger_st (
+            "worker #" + to_string (id),
+            "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
+    );
     logger->set_level (spdlog::level::debug);
 }
 
-Worker::~Worker () {
+Indexer::~Indexer () {
 
 }
 
-void Worker::start () const {
-    // get the file's id from the file's name
-    // load the file's url from the db
+void Indexer::setIndexingQueue (std::shared_ptr<std::deque<Document>> queue) {
+    this->indexingQueue = queue;
+}
+
+void Indexer::setIndexingQueueMutex (shared_ptr<mutex> m)
+{
+    indexingQueueMutex = m;
+}
+
+void Indexer::start () const {
+    // load a document from the queue
+    // parse the document's source code
     // split the document's text into tokens
     // stem the tokens
     // add the tokens to the index
-    // delete the file from the filesystem
-
 }
 
-vector<string> Worker::tokenize (std::string& text) const {
+vector<string> Indexer::tokenize (std::string& text) const {
     vector<string> tokens;
     size_t prevPos = 0;
     bool isAlnum = false;
@@ -60,7 +72,7 @@ vector<string> Worker::tokenize (std::string& text) const {
     return tokens;
 }
 
-vector<string>& Worker::stem (std::vector<std::string>& tokens) const {
+vector<string>& Indexer::stem (std::vector<std::string>& tokens) const {
     return tokens;
 }
 

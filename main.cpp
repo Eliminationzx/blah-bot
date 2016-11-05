@@ -4,7 +4,7 @@
 
 //#include "spdlog/spdlog.h"
 
-#include "src/index/Worker.h"
+#include "index/Indexer.h"
 #include "Engine.h"
 
 using namespace std;
