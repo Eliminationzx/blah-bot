@@ -24,42 +24,42 @@ Worker::~Worker () {
 
 void Worker::start () const {
     // temporary. Should be loaded from config
-    static char const* sourceDirPath = "/home/ololosh/pj/cpp/se/sourceDir";
-    path const sourceDir (sourceDirPath);
-    boost::filesystem::ifstream file;
-    uint64_t documentId = 0;
-    string fileContents;
-    Document htmlDocument (make_shared<HTMLDocumentParser> ());
-
-    logger->debug ("{}", __PRETTY_FUNCTION__);
-
-    try {
-        // check the indexing dir for a new file
-        if (exists(sourceDir) and is_directory (sourceDir)) {
-            logger->info ("source dir exists");
-
-            for (directory_entry& entry : directory_iterator (sourceDir)) {
-                if (is_regular_file (entry.path ())) {
-                    // if there is something - load it
-                    file.open (entry.path ());
-
-                    documentId = stoull (entry.path ().filename ().string ());
-                    fileContents.assign ((istreambuf_iterator<char> (file)),
-                                        istreambuf_iterator<char> ());
-
-                    logger->debug (
-                            "File: {}, \nContents: {}",
-                            entry.path ().filename ().string (),
-                            fileContents
-                    );
-
-                    file.close ();
-                }
-            }
-        }
-    } catch (filesystem_error const& ex) {
-        logger->error ("dir exception: {}", ex.what ());
-    }
+//    static char const* sourceDirPath = "/home/ololosh/pj/cpp/se/sourceDir";
+//    path const sourceDir (sourceDirPath);
+//    boost::filesystem::ifstream file;
+//    uint64_t documentId = 0;
+//    string fileContents;
+//    Document htmlDocument (make_shared<HTMLDocumentParser> ());
+//
+//    logger->debug ("{}", __PRETTY_FUNCTION__);
+//
+//    try {
+//        // check the indexing dir for a new file
+//        if (exists(sourceDir) and is_directory (sourceDir)) {
+//            logger->info ("source dir exists");
+//
+//            for (directory_entry& entry : directory_iterator (sourceDir)) {
+//                if (is_regular_file (entry.path ())) {
+//                    // if there is something - load it
+//                    file.open (entry.path ());
+//
+//                    documentId = stoull (entry.path ().filename ().string ());
+//                    fileContents.assign ((istreambuf_iterator<char> (file)),
+//                                        istreambuf_iterator<char> ());
+//
+//                    logger->debug (
+//                            "File: {}, \nContents: {}",
+//                            entry.path ().filename ().string (),
+//                            fileContents
+//                    );
+//
+//                    file.close ();
+//                }
+//            }
+//        }
+//    } catch (filesystem_error const& ex) {
+//        logger->error ("dir exception: {}", ex.what ());
+//    }
 
     // get the file's id from the file's name
     // load the file's url from the db
