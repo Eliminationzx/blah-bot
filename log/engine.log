@@ -71,3 +71,6 @@
 [2016-11-05 16:59:55.432] [engine] [info] void Engine::start()
 [2016-11-05 16:59:55.436] [engine] [info] Loaded crawlingQueue: 1 elements.
 [2016-11-05 16:59:55.436] [engine] [info] Loaded indexingQueue: 0 elements.
+[2016-11-05 17:10:46.487] [engine] [info] void Engine::start()
+[2016-11-05 17:10:46.489] [engine] [info] Loaded crawlingQueue: 1 elements.
+[2016-11-05 17:10:46.489] [engine] [info] Loaded indexingQueue: 0 elements.

@@ -1,14 +1,53 @@
-[2016-11-05 16:59:55.446] [crawler #1] [info] Crawler has started: 139888236615424
-[2016-11-05 16:59:55.446] [crawler #1] [info] downloading page from: https://en.wikipedia.org/wiki/Main_Page
-[2016-11-05 16:59:56.624] [crawler #1] [info] the page has been downloaded
-[2016-11-05 16:59:56.636] [crawler #1] [info] Extracting 323 links.
-[2016-11-05 16:59:56.636] [crawler #1] [info] The page has been added to the indexing queue: https://en.wikipedia.org/wiki/Main_Page
-[2016-11-05 16:59:57.136] [crawler #1] [info] downloading page from: //www.mediawiki.org/
-[2016-11-05 16:59:57.137] [crawler #1] [info] the page has been downloaded
-[2016-11-05 16:59:57.137] [crawler #1] [info] Extracting 0 links.
-[2016-11-05 16:59:57.137] [crawler #1] [info] The page has been added to the indexing queue: //www.mediawiki.org/
-[2016-11-05 16:59:57.637] [crawler #1] [info] downloading page from: https://wikimediafoundation.org/
-[2016-11-05 16:59:58.442] [crawler #1] [info] Stoping the crawler
-[2016-11-05 16:59:55.453] [crawler #0] [info] Crawler has started: 139888245008128
-[2016-11-05 16:59:55.453] [crawler #0] [info] The queue is emtpy, exiciting the loop
-[2016-11-05 16:59:58.442] [crawler #0] [info] Stoping the crawler
+[2016-11-05 17:10:46.495] [crawler #1] [info] Crawler has started: 140081185675008
+[2016-11-05 17:10:46.495] [crawler #1] [info] downloading page from: https://en.wikipedia.org/wiki/Main_Page
+[2016-11-05 17:10:47.393] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:47.404] [crawler #1] [info] Extracting 323 links.
+[2016-11-05 17:10:47.404] [crawler #1] [info] The page has been added to the indexing queue: https://en.wikipedia.org/wiki/Main_Page
+[2016-11-05 17:10:47.904] [crawler #1] [info] downloading page from: //www.mediawiki.org/
+[2016-11-05 17:10:47.905] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:47.905] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:47.905] [crawler #1] [info] The page has been added to the indexing queue: //www.mediawiki.org/
+[2016-11-05 17:10:48.405] [crawler #1] [info] downloading page from: https://wikimediafoundation.org/
+[2016-11-05 17:10:49.573] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:49.573] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:49.573] [crawler #1] [info] The page has been added to the indexing queue: https://wikimediafoundation.org/
+[2016-11-05 17:10:50.073] [crawler #1] [info] downloading page from: //en.m.wikipedia.org/w/index.php?title=Main_Page&mobileaction=toggle_view_mobile
+[2016-11-05 17:10:50.073] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:50.073] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:50.073] [crawler #1] [info] The page has been added to the indexing queue: //en.m.wikipedia.org/w/index.php?title=Main_Page&mobileaction=toggle_view_mobile
+[2016-11-05 17:10:50.574] [crawler #1] [info] downloading page from: https://wikimediafoundation.org/wiki/Cookie_statement
+[2016-11-05 17:10:50.898] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:50.903] [crawler #1] [info] Extracting 84 links.
+[2016-11-05 17:10:50.903] [crawler #1] [info] The page has been added to the indexing queue: https://wikimediafoundation.org/wiki/Cookie_statement
+[2016-11-05 17:10:51.403] [crawler #1] [info] downloading page from: https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute
+[2016-11-05 17:10:52.915] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:52.922] [crawler #1] [info] Extracting 229 links.
+[2016-11-05 17:10:52.923] [crawler #1] [info] The page has been added to the indexing queue: https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute
+[2016-11-05 17:10:53.423] [crawler #1] [info] downloading page from: //en.wikipedia.org/wiki/Wikipedia:Contact_us
+[2016-11-05 17:10:53.423] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:53.423] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:53.423] [crawler #1] [info] The page has been added to the indexing queue: //en.wikipedia.org/wiki/Wikipedia:Contact_us
+[2016-11-05 17:10:53.923] [crawler #1] [info] downloading page from: /wiki/Wikipedia:General_disclaimer
+[2016-11-05 17:10:53.924] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:53.924] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:53.924] [crawler #1] [info] The page has been added to the indexing queue: /wiki/Wikipedia:General_disclaimer
+[2016-11-05 17:10:54.424] [crawler #1] [info] downloading page from: /wiki/Wikipedia:About
+[2016-11-05 17:10:54.424] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:54.424] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:54.424] [crawler #1] [info] The page has been added to the indexing queue: /wiki/Wikipedia:About
+[2016-11-05 17:10:54.924] [crawler #1] [info] downloading page from: https://wikimediafoundation.org/wiki/Privacy_policy
+[2016-11-05 17:10:55.252] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:55.269] [crawler #1] [info] Extracting 331 links.
+[2016-11-05 17:10:55.269] [crawler #1] [info] The page has been added to the indexing queue: https://wikimediafoundation.org/wiki/Privacy_policy
+[2016-11-05 17:10:55.769] [crawler #1] [info] downloading page from: //www.wikimediafoundation.org/
+[2016-11-05 17:10:55.770] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:55.770] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:55.770] [crawler #1] [info] The page has been added to the indexing queue: //www.wikimediafoundation.org/
+[2016-11-05 17:10:56.270] [crawler #1] [info] downloading page from: //wikimediafoundation.org/wiki/Privacy_policy
+[2016-11-05 17:10:56.270] [crawler #1] [info] the page has been downloaded
+[2016-11-05 17:10:56.270] [crawler #1] [info] Extracting 0 links.
+[2016-11-05 17:10:56.270] [crawler #1] [info] The page has been added to the indexing queue: //wikimediafoundation.org/wiki/Privacy_policy
+[2016-11-05 17:10:56.495] [crawler #1] [info] Stoping the crawler
+[2016-11-05 17:10:46.496] [crawler #0] [info] Crawler has started: 140081194067712
+[2016-11-05 17:10:46.496] [crawler #0] [info] The queue is emtpy, exiciting the loop
+[2016-11-05 17:10:56.495] [crawler #0] [info] Stoping the crawler

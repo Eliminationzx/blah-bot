@@ -11,13 +11,11 @@ using namespace std;
 //using namespace spdlog;
 
 int main (int argc, char *argv[]) {
-    cout << "Hello, world!\n";
-
     Engine e;
 
     e.start ();
 
-    this_thread::sleep_for (chrono::seconds (3));
+    this_thread::sleep_for (chrono::seconds (10));
 
     e.stop ();
 

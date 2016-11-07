@@ -14,7 +14,8 @@ set(HEADER_FILES
         web/robotscontroller.h
         Engine.h
         db/ICrawlerQueueDAO.h
-        db/CrawlerQueueDAO.h)
+        db/CrawlerQueueDAO.h
+        config/Config.h)
 
 set(SOURCE_FILES
         parser/HTMLDocumentParser.cpp
@@ -29,6 +30,7 @@ set(SOURCE_FILES
         web/http.cpp
         web/robotscontroller.cpp
         Engine.cpp
-        db/CrawlerQueueDAO.cpp )
+        db/CrawlerQueueDAO.cpp
+        config/Config.cpp)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
