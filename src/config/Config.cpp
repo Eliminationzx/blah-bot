@@ -7,24 +7,36 @@
 using namespace std;
 using namespace boost;
 
-bool Config::getBool (std::string key)
+optional <bool> Config::getBool (std::string key)
 {
-    return any_cast <bool> (storage[key]);
+    if (storage.find (key) != storage.end ())
+        return any_cast <bool> (storage[key]);
+
+    return optional <bool> {};
 }
 
-int Config::getInt (std::string key)
+optional <int> Config::getInt (std::string key)
 {
-    return any_cast <int> (storage[key]);
+    if (storage.find (key) != storage.end ())
+        return any_cast <int> (storage[key]);
+
+    return optional <int> {};
 }
 
-double Config::getDouble (std::string key)
+optional <double> Config::getDouble (std::string key)
 {
-    return any_cast <double> (storage[key]);
+    if (storage.find (key) != storage.end ())
+        return any_cast <double> (storage[key]);
+
+    return optional <double> {};
 }
 
-string Config::getString (std::string key)
+optional <string> Config::getString (std::string key)
 {
-    return any_cast <string> (storage[key]);
+    if (storage.find (key) != storage.end ())
+        return any_cast <string> (storage[key]);
+
+    return optional <string> {};
 }
 
 void Config::setBool (std::string key, bool value)

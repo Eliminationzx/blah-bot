@@ -2,6 +2,7 @@
 #include <map>
 
 #include "boost/any.hpp"
+#include "boost/optional.hpp"
 
 /*!
  * \brief Configuration class
@@ -39,7 +40,7 @@ public:
      * @param config key
      * @return bool value
      */
-    bool getBool (std::string key);
+    boost::optional <bool> getBool (std::string key);
 
     /*!
      * \brief get the value of type int for a key
@@ -47,7 +48,7 @@ public:
      * @param config key
      * @return int value
      */
-    int getInt (std::string key);
+    boost::optional <int> getInt (std::string key);
 
     /*!
      * \brief get the value of type double for a key
@@ -55,7 +56,7 @@ public:
      * @param config key
      * @return double value
      */
-    double getDouble (std::string key);
+    boost::optional <double> getDouble (std::string key);
 
     /*!
      * \brief get the value of type string for a key
@@ -63,7 +64,7 @@ public:
      * @param config key
      * @return string value
      */
-    std::string getString (std::string key);
+    boost::optional <std::string> getString (std::string key);
 
     /*!
      * \brief Set the value of type bool for a key

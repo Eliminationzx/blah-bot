@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "gmock/gmock.h"
+#include "boost/optional.hpp"
 
 #include "config/Config.h"
 
@@ -22,11 +23,11 @@ TEST (configTest, setAndGetMethods)
     conf.setDouble ("double", d);
     conf.setString ("string", s);
 
-    ASSERT_EQ (b, conf.getBool ("bool"));
-    ASSERT_EQ (i, conf.getInt ("int"));
-    ASSERT_EQ (d, conf.getDouble ("double"));
-    ASSERT_EQ (s, conf.getString ("string"));
-//    ASSERT_EQ (s, conf.getString ("vasya"));
+    ASSERT_EQ (b, *(conf.getBool ("bool")));
+    ASSERT_EQ (i, *conf.getInt ("int"));
+    ASSERT_EQ (d, *conf.getDouble ("double"));
+    ASSERT_EQ (s, *conf.getString ("string"));
+    ASSERT_EQ (boost::optional <std::string> {}, conf.getString ("blah"));
 }
 
 TEST (configTest, loadMethod)
