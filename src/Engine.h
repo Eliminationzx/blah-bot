@@ -30,10 +30,7 @@ class Engine {
     std::deque<Crawler> crawlers;
     std::deque<Indexer> indexers;
     std::deque<std::thread> workers;
-    std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
-            "engine",
-            "/home/ololosh/pj/cpp/se/indexer/log/engine.log"
-    );
+    std::shared_ptr<spdlog::logger> logger;
     bool running = false;
 
 public:
