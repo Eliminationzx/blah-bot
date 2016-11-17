@@ -56,6 +56,8 @@ public:
     void startLoop ();
 
     void stop ();
+
+    void setLogger (std::string);
 };
 
 

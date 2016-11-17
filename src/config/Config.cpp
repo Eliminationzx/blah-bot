@@ -59,8 +59,6 @@ void Config::setString (std::string key, string value)
     storage[key] = value;
 }
 
-#include <iostream>
-
 void Config::loadFrom (std::string path)
 {
     // open the specified file
@@ -76,8 +74,6 @@ void Config::loadFrom (std::string path)
     size_t digitIndex;
     size_t dotIndex;
     string key;
-
-    cout << __PRETTY_FUNCTION__ << '\n';
 
     // for every line
     for (string line; getline (file, line);)
@@ -96,8 +92,6 @@ void Config::loadFrom (std::string path)
         firstQuoteIndex = line.find_first_of ('"');
         lastQuoteIndex = line.find_last_of ('"');
 
-        cout << "key: " << key << '\n';
-
         if (firstQuoteIndex == string::npos && lastQuoteIndex == string::npos)
         {
             // the value is not a string
@@ -105,14 +99,10 @@ void Config::loadFrom (std::string path)
             if (line.find ("True") != string::npos || line.find ("true") != string::npos)
             {
                 setBool (key, true);
-
-                cout << "bool value true\n";
             }
             else if (line.find ("False") != string::npos || line.find ("false") != string::npos)
             {
                 setBool (key, false);
-
-                cout << "bool value: false\n";
             }
             else
             {

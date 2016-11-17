@@ -17,17 +17,18 @@ Engine::Engine () {
 }
 
 void Engine::start () {
-    logger->info (__PRETTY_FUNCTION__);
-
     Config conf;
     conf.loadFrom ("/home/ololosh/.config/indexer/indexer.conf");
 
-//    if (conf.getString ("loggerPath"))
+    auto loggerPath = conf.getString ("loggerPath");
+    // default log file path
+    if (!loggerPath)
+        loggerPath = "/home/ololosh/.config/indexer/default.log";
 
-//    = spdlog::basic_logger_st (
-//            "engine",
-//            "/home/ololosh/pj/cpp/se/indexer/log/engine.log"
-//    );
+    logger = spdlog::basic_logger_st (
+            "engine",
+            *loggerPath
+    );
 
     running = true;
     int numberOfCrawlers = 2;
@@ -46,8 +47,8 @@ void Engine::start () {
 
     auto indexingQueueMutex = make_shared<mutex> ();
 
-    logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
-    logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
+//    logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
+//    logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
 
     for (int i = 0; i < numberOfCrawlers; ++i)
     {
@@ -55,6 +56,9 @@ void Engine::start () {
         crawlers.back ().setCrawlingQueue (crawlingQueue);
         crawlers.back ().setIndexingQueue (indexingQueue);
         crawlers.back ().setIndexingQueueMutex (indexingQueueMutex);
+
+        if (loggerPath)
+            crawlers.back ().setLogger (*loggerPath);
     }
 
     for (const auto& e : crawlers) {
@@ -68,6 +72,9 @@ void Engine::stop () {
     for (auto& c : crawlers) {
         c.stop ();
     }
+
+    for (auto& w : workers)
+        w.join ();
 
     crawlerQueueDAO->storeQueue (*crawlingQueue);
     indexQueueDAO->saveQueue (*indexingQueue);

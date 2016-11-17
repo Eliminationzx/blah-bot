@@ -21,10 +21,10 @@ Crawler::Crawler (uint64_t id)
 {
     this->id = id;
 
-    logger = spdlog::basic_logger_mt (
-            "crawler #" + std::to_string (id),
-            "/home/ololosh/pj/cpp/se/indexer/log/crawler.log"
-    );
+//    logger = spdlog::basic_logger_mt (
+//            "crawler #" + std::to_string (id),
+//            "/home/ololosh/pj/cpp/se/indexer/log/crawler.log"
+//    );
 }
 
 Crawler::~Crawler () { }
@@ -108,7 +108,7 @@ void Crawler::startLoop ()
 
         links = move (htmlParser->extractLinks (htmlDocument.getHtml ()));
 
-        logger->info ("Extracting {} links.", links.size ());
+        logger->info ("Extracted {} links.", links.size ());
 
         crawlingQueueMutex.lock ();
         while (!links.empty ()) {
@@ -131,4 +131,12 @@ void Crawler::stop () {
     logger->info ("Stoping the crawler");
 
     running = false;
+}
+
+void Crawler::setLogger (string loggerPath)
+{
+    logger = spdlog::basic_logger_st (
+            "crawler #" + to_string (id),
+            loggerPath
+    );
 }
