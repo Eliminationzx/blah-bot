@@ -3,9 +3,7 @@
 //
 
 #include <thread>
-//#include <chrono>
-#include <iostream>
-#include <string>
+#include <functional>
 
 #include "Engine.h"
 #include "config/Config.h"
@@ -25,12 +23,11 @@ void Engine::start () {
     if (!loggerPath)
         loggerPath = "/home/ololosh/.config/indexer/default.log";
 
-    logger = spdlog::basic_logger_st (
+    logger = spdlog::basic_logger_mt (
             "engine",
             *loggerPath
     );
 
-    running = true;
     int numberOfCrawlers = 2;
 
     auto posgresConn = make_shared<connection> (
@@ -61,20 +58,25 @@ void Engine::start () {
             crawlers.back ().setLogger (*loggerPath);
     }
 
-    for (const auto& e : crawlers) {
-        workers.push_back (thread (e));
+    for (auto& e : crawlers) {
+        // pass a reference to the crawler object because
+        // if the object is copied, it will not be possible to change it's state to stop it
+        workers.push_back (move (thread (ref (e))));
     }
 }
 
 void Engine::stop () {
     logger->debug  (__PRETTY_FUNCTION__);
 
-    for (auto& c : crawlers) {
+    for (auto& c : crawlers)
+    {
         c.stop ();
     }
 
     for (auto& w : workers)
+    {
         w.join ();
+    }
 
     crawlerQueueDAO->storeQueue (*crawlingQueue);
     indexQueueDAO->saveQueue (*indexingQueue);

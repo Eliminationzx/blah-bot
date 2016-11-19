@@ -8,7 +8,7 @@ using namespace std;
 using namespace pqxx;
 
 RobotstxtDb::RobotstxtDb() {
-    this->conn = new connection ("dbname=robotstxt user=postgres");
+    this->conn = new connection ("dbname=index_test user=postgres");
 }
 
 RobotstxtDb::~RobotstxtDb() {
@@ -48,7 +48,7 @@ void RobotstxtDb::insertRules(std::vector<std::string> &rules, int siteId) const
 }
 
 bool RobotstxtDb::isPageDisallowed(std::string &url) const {
-    // should check in sites table if all pages are disallowed
+    // TODO: should check in sites table if all pages are disallowed
 
     work w (*this->conn);
     auto pageResult = w.exec (

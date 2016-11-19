@@ -25,6 +25,7 @@ class Indexer {
             "worker",
             "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
     );
+    bool running = false;
 
 public:
     Indexer (uint64_t);

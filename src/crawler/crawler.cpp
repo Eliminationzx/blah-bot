@@ -135,7 +135,7 @@ void Crawler::stop () {
 
 void Crawler::setLogger (string loggerPath)
 {
-    logger = spdlog::basic_logger_st (
+    logger = spdlog::basic_logger_mt (
             "crawler #" + to_string (id),
             loggerPath
     );

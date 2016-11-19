@@ -11,6 +11,7 @@
 #include <vector>
 #include <mutex>
 #include <iostream>
+#include <atomic>
 
 #include <pqxx/pqxx>
 #include <spdlog/spdlog.h>
