@@ -28,7 +28,13 @@ void Engine::start () {
             *loggerPath
     );
 
-    int numberOfCrawlers = 2;
+    auto crawlerThreadsNum = conf.getInt ("crawlerThreads");
+    if (!crawlerThreadsNum)
+        crawlerThreadsNum = 1;
+
+    auto indexerThreadsNum = conf.getInt ("indexerThreads");
+    if (!indexerThreadsNum)
+        indexerThreadsNum = 1;
 
     auto posgresConn = make_shared<connection> (
             "user=postgres dbname=index_test"
@@ -47,7 +53,7 @@ void Engine::start () {
 //    logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
 //    logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
 
-    for (int i = 0; i < numberOfCrawlers; ++i)
+    for (int i = 0; i < *crawlerThreadsNum; ++i)
     {
         crawlers.push_back (Crawler (i));
         crawlers.back ().setCrawlingQueue (crawlingQueue);
