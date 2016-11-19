@@ -60,7 +60,7 @@ public:
     const std::string& getText () const;
     void setText (const std::string &text);
 
-    const std::vector<std::string> getTokens () const;
+    std::vector<std::string> getTokens () const;
     void setTokens (const std::vector<std::string> &tokens);
 
 

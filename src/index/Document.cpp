@@ -72,7 +72,7 @@ void Document::setText (const std::string &text) {
     Document::text = text;
 }
 
-const std::vector<std::string> Document::getTokens () const {
+std::vector<std::string> Document::getTokens () const {
     return tokens;
 }
 

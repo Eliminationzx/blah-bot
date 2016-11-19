@@ -4,15 +4,12 @@
 #include <cstdint>
 #include <iostream>
 
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/fstream.hpp>
-
 #include "Document.h"
 #include "parser/HTMLDocumentParser.h"
 #include "Indexer.h"
+#include "Stemmer.h"
 
 using namespace std;
-using namespace boost::filesystem;
 
 Indexer::Indexer (uint64_t id)
 {
@@ -36,15 +33,45 @@ void Indexer::setIndexingQueueMutex (shared_ptr<mutex> m)
     indexingQueueMutex = m;
 }
 
-void Indexer::start () const {
-    // load a document from the queue
-    // parse the document's source code
-    // split the document's text into tokens
-    // stem the tokens
-    // add the tokens to the index
+void Indexer::start ()
+{
+    Document doc (make_shared <HTMLDocumentParser> ());
+    size_t newEnd = 0;
+
+    while (running)
+    {
+        // load a document from the queue
+        if (!indexingQueue->empty ())
+        {
+            indexingQueueMutex->lock ();
+
+            doc = indexingQueue->front ();
+            indexingQueue->pop_front ();
+
+            indexingQueueMutex->unlock ();
+        }
+
+
+        // parse the document's source code
+        if (!doc.parse ())
+            continue;
+
+        // split the document's text into tokens
+        doc.setTokens (tokenize (doc.getHtml ()));
+
+        // stem the tokens
+        for (auto& token : doc.getTokens ())
+        {
+            newEnd = stem (const_cast <char*> (token.data ()), 0, token.size () - 1);
+
+            token = string (token, 0, newEnd + 1);
+        }
+
+        // add the tokens to the index
+    }
 }
 
-vector<string> Indexer::tokenize (std::string& text) const {
+vector<string> Indexer::tokenize (const std::string& text)  {
     vector<string> tokens;
     size_t prevPos = 0;
     bool isAlnum = false;
@@ -72,7 +99,4 @@ vector<string> Indexer::tokenize (std::string& text) const {
     return tokens;
 }
 
-vector<string>& Indexer::stem (std::vector<std::string>& tokens) const {
-    return tokens;
-}
 
