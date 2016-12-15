@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <map>
 
 #include "parser/HTMLDocumentParser.h"
 
@@ -26,7 +27,9 @@ class Document {
     std::string address;
     std::string html;
     std::string text;
-    std::vector<std::string> tokens;
+//    std::vector<std::string> tokens;
+    // TODO:: change to an array of Token objects?
+    std::map <std::string, std::pair <double, double>> tokens;
     bool valid = false;
 
 public:
@@ -35,7 +38,6 @@ public:
     ~Document ();
     Document (const Document& ) = default;
     Document (Document&& ) = default;
-
 
     /*!
      * \brief parse document's code.
@@ -60,9 +62,12 @@ public:
     const std::string& getText () const;
     void setText (const std::string &text);
 
-    std::vector<std::string> getTokens () const;
-    void setTokens (const std::vector<std::string> &tokens);
+//    const std::vector<std::string> getTokens () const;
+//    void setTokens (const std::vector<std::string> &tokens);
 
+    std::map <std::string, std::pair <double, double>> getTokens ();
+
+    void setTokens (std::map <std::string, std::pair <double, double>> );
 
     const std::string &getAddress () const {
         return address;

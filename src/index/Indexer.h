@@ -25,6 +25,7 @@ class Indexer {
             "worker",
             "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
     );
+    bool running = false;
 
 public:
     Indexer (uint64_t);
@@ -46,7 +47,7 @@ public:
      * read a html file from the source dir,
      * parse it, tokenize, stemm and add to index.
      */
-    void start () const;
+    void start ();
 
     /*!
      * \brief split text into a list of tokens
@@ -55,17 +56,7 @@ public:
      *
      * Teporary implementation: split words by all non alphanumeric characters
      */
-    std::vector<std::string> tokenize (std::string& ) const;
-
-    /*!
-     * Tokens stemming.
-     * @param list of tokens
-     * @returns list of stemmed tokens
-     *
-     * Porter`s algorithm
-     */
-    std::vector<std::string>& stem (std::vector<std::string>&) const;
-
+    std::vector<std::string> tokenize (const std::string& );
 private:
 };
 

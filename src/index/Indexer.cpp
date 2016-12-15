@@ -67,6 +67,13 @@ void Indexer::start ()
             token = string (token, 0, newEnd + 1);
         }
 
+        // TODO: all that stuff
+        // count term frequency
+        // count inverted document frequency
+        // count documents length
+//        doc.getTokens ().size ();
+
+        // TODO: indexWriter
         // add the tokens to the index
     }
 }
