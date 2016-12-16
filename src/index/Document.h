@@ -63,6 +63,7 @@ public:
 
     const std::vector<Token> getTokens () const;
     void setTokens (const std::vector<Token> &tokens);
+    void setTokens (std::vector <std::string> tokens);
 
     const std::string &getAddress () const {
         return address;

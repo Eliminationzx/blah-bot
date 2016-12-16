@@ -80,6 +80,12 @@ void Document::setTokens (const std::vector<Token> &tokens) {
     Document::tokens = tokens;
 }
 
+void Document::setTokens (vector <string> tokens) {
+    for (const auto& token : tokens) {
+        this->tokens.emplace_back (token);
+    }
+}
+
 bool Document::isValid () const {
     return valid;
 }

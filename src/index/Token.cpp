@@ -8,6 +8,14 @@
 
 using namespace std;
 
+Token::Token (string _data)
+        : data (_data)
+{}
+
+Token::Token (string _data, double _idf, double _tf)
+        : data (_data), idf (_idf), tf (_tf)
+{}
+
 Token::Token (Token&& source) {
     this->data = move (source.data);
     this->idf = move (source.idf);

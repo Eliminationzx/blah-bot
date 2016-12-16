@@ -18,6 +18,8 @@ class Token
 
 public:
     Token () = default;
+    Token (std::string );
+    Token (std::string, double, double);
     ~Token () = default;
     Token (const Token& ) = default;
     Token (Token&& ) noexcept;
