@@ -72,20 +72,12 @@ void Document::setText (const std::string &text) {
     Document::text = text;
 }
 
-//const std::vector<std::string> Document::getTokens () const {
-//    return tokens;
-//}
-//
-//void Document::setTokens (const std::vector<std::string> &tokens) {
-//    Document::tokens = tokens;
-//}
-
-map <string, pair <double, double>> Document::getTokens () {
+const std::vector<Token> Document::getTokens () const {
     return tokens;
-};
+}
 
-void Document::setTokens (map <string, pair <double, double>> tokens) {
-    this->tokens = tokens;
+void Document::setTokens (const std::vector<Token> &tokens) {
+    Document::tokens = tokens;
 }
 
 bool Document::isValid () const {

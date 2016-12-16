@@ -62,9 +62,9 @@ void Indexer::start ()
         // stem the tokens
         for (auto& token : doc.getTokens ())
         {
-            newEnd = stem (const_cast <char*> (token.data ()), 0, token.size () - 1);
+            newEnd = stem (const_cast <char*> (token.first.data ()), 0, token.first.size () - 1);
 
-            token = string (token, 0, newEnd + 1);
+            token.first = string (token.first, 0, newEnd + 1);
         }
 
         // TODO: all that stuff

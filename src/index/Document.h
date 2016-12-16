@@ -11,6 +11,7 @@
 #include <map>
 
 #include "parser/HTMLDocumentParser.h"
+#include "Token.h"
 
 /*!
  * \brief Encapsualtes a document.
@@ -27,9 +28,7 @@ class Document {
     std::string address;
     std::string html;
     std::string text;
-//    std::vector<std::string> tokens;
-    // TODO:: change to an array of Token objects?
-    std::map <std::string, std::pair <double, double>> tokens;
+    std::vector<Token> tokens;
     bool valid = false;
 
 public:
@@ -62,12 +61,8 @@ public:
     const std::string& getText () const;
     void setText (const std::string &text);
 
-//    const std::vector<std::string> getTokens () const;
-//    void setTokens (const std::vector<std::string> &tokens);
-
-    std::map <std::string, std::pair <double, double>> getTokens ();
-
-    void setTokens (std::map <std::string, std::pair <double, double>> );
+    const std::vector<Token> getTokens () const;
+    void setTokens (const std::vector<Token> &tokens);
 
     const std::string &getAddress () const {
         return address;

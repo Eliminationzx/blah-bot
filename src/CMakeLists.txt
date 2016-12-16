@@ -16,7 +16,8 @@ set(HEADER_FILES
         db/ICrawlerQueueDAO.h
         db/CrawlerQueueDAO.h
         config/Config.h
-        db/IndexWriter.h)
+        db/IndexWriter.h
+        index/Token.h)
 
 set(SOURCE_FILES
         parser/HTMLDocumentParser.cpp
@@ -33,6 +34,7 @@ set(SOURCE_FILES
         Engine.cpp
         db/CrawlerQueueDAO.cpp
         config/Config.cpp
-        db/IndexWriter.cpp)
+        db/IndexWriter.cpp
+        index/Token.cpp)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
