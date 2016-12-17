@@ -19,6 +19,16 @@ public:
     IndexWriter (std::shared_ptr <pqxx::connection> );
 
     void write (Document& doc);
+
+    /*!
+     * \brief counts the number of documents in the collection
+     */
+    long countDocuments ();
+
+    /*!
+     * \brief counts the document frequency for a given token
+     */
+    long countDocuments (std::string token);
 };
 
 
