@@ -29,6 +29,9 @@ public:
      * \brief counts the document frequency for a given token
      */
     long countDocuments (std::string token);
+
+private:
+    void initQueries ();
 };
 
 

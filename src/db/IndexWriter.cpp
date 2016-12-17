@@ -9,16 +9,35 @@ using namespace pqxx;
 
 IndexWriter::IndexWriter (shared_ptr <connection> Conn)
     : conn (Conn)
-{}
+{
+    initQueries ();
+}
 
-void IndexWriter::write (Document& doc) {
+void IndexWriter::initQueries ()
+{
+    this->conn->prepare (
+            "insertToken",
+            "INSERT INTO index (token, documentid, tf, idf) VALUES ($1, $2, $3, $4);"
+    );
+
+    this->conn->prepare (
+            "countDocuments",
+            "SELECT count (id) FROM documents;"
+    );
+
+    this->conn->prepare (
+            "countDocumentFrequency",
+            "SELECT count (documentid) FROM index WHERE token=$1;"
+    );
+}
+
+void IndexWriter::write (Document& doc)
+{
+    // check if the document is already in the index
+
     // TODO:: what if the document is not present in the collection?
 
     // TODO:: move prepare statement to another method
-    this->conn->prepare (
-        "insertToken",
-        "INSERT INTO index (token, documentid, tf, idf) VALUES ($1, $2, $3, $4);"
-    );
     work w (*conn);
 
     for (auto& token : doc.getTokens ()) {
@@ -34,10 +53,6 @@ void IndexWriter::write (Document& doc) {
 }
 
 long IndexWriter::countDocuments () {
-    this->conn->prepare (
-        "countDocuments",
-        "SELECT count (id) FROM documents;"
-    );
     work w (*conn);
 
     auto res = w.prepared ("countDocuments").exec ();
@@ -46,10 +61,6 @@ long IndexWriter::countDocuments () {
 }
 
 long IndexWriter::countDocuments (string token) {
-    this->conn->prepare (
-            "countDocumentFrequency",
-            "SELECT count (documentid) FROM index WHERE token=$1;"
-    );
     work w (*conn);
 
     auto res = w.prepared ("countDocumentFrequency").exec ();
