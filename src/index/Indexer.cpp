@@ -33,6 +33,11 @@ void Indexer::setIndexingQueueMutex (shared_ptr<mutex> m)
     indexingQueueMutex = m;
 }
 
+void Indexer::setIndexWriter (shared_ptr <IndexWriter> writer)
+{
+    this->indexWriter = writer;
+}
+
 void Indexer::start ()
 {
     Document doc (make_shared <HTMLDocumentParser> ());
@@ -51,7 +56,6 @@ void Indexer::start ()
             indexingQueueMutex->unlock ();
         }
 
-
         // parse the document's source code
         if (!doc.parse ())
             continue;
@@ -62,19 +66,17 @@ void Indexer::start ()
         // stem the tokens
         for (auto& token : doc.getTokens ())
         {
-            newEnd = stem (const_cast <char*> (token.first.data ()), 0, token.first.size () - 1);
+            newEnd = stem (
+                    const_cast <char*> (token.getData ().data ()),
+                    0,
+                    token.getData ().size () - 1
+            );
 
-            token.first = string (token.first, 0, newEnd + 1);
+            token.setData (string (token.getData (), 0, newEnd + 1));
         }
 
-        // TODO: all that stuff
-        // count term frequency
-        // count inverted document frequency
-        // count documents length
-//        doc.getTokens ().size ();
-
-        // TODO: indexWriter
         // add the tokens to the index
+        indexWriter->write (doc);
     }
 }
 

@@ -3,7 +3,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 link_directories(/usr/local/lib)
 
 add_executable(dbTest
-        indexQueueDAOTest.cpp crawlQueueTest.cpp)
+        indexQueueDAOTest.cpp crawlQueueTest.cpp indexWriterTest.cpp)
 
 target_link_libraries(dbTest gmock gmock_main)
 target_link_libraries(dbTest src)

@@ -26,6 +26,10 @@ string Token::getData () {
     return this->data;
 }
 
+const string Token::getData () const {
+    return this->data;
+}
+
 void Token::setData (const string& data) {
     this->data = data;
 }
@@ -34,12 +38,20 @@ void Token::setData (string&& data) {
     this->data = move (data);
 }
 
+const double Token::getIdf () const {
+    return this->idf;
+}
+
 double Token::getIdf () {
     return this->idf;
 }
 
 void Token::setIdf (double idf) {
     this->idf = idf;
+}
+
+const double Token::getTf () const {
+    return this->tf;
 }
 
 double Token::getTf () {

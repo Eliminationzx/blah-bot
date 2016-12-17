@@ -12,7 +12,8 @@
 
 #include <spdlog/spdlog.h>
 
-#include <index/Document.h>
+#include "index/Document.h"
+#include "db/IndexWriter.h"
 
 /*!
  * Manages indexing loop
@@ -21,6 +22,7 @@ class Indexer {
     uint64_t id;
     std::shared_ptr<std::mutex> indexingQueueMutex;
     std::shared_ptr<std::deque<Document>> indexingQueue;
+    std::shared_ptr <IndexWriter> indexWriter;
     std::shared_ptr<spdlog::logger> logger = spdlog::basic_logger_st (
             "worker",
             "/home/ololosh/pj/cpp/se/indexer/log/worker.log"
@@ -39,6 +41,8 @@ public:
     void setIndexingQueue (std::shared_ptr<std::deque<Document>> );
 
     void setIndexingQueueMutex (std::shared_ptr<std::mutex> );
+
+    void setIndexWriter (std::shared_ptr <IndexWriter> );
 
     /*!
      * \brief start indexing a web page

@@ -25,13 +25,16 @@ public:
     Token (Token&& ) noexcept;
 
     std::string getData ();
+    const std::string getData () const;
     void setData (const std::string&);
     void setData (std::string&&);
 
     double getIdf ();
+    const double getIdf () const;
     void setIdf (double);
 
     double getTf ();
+    const double getTf () const;
     void setTf (double);
 };
 

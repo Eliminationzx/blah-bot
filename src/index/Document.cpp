@@ -37,7 +37,7 @@ void Document::setId (unsigned long id) {
     Document::id = id;
 }
 
-const std::string &Document::getHtml () const {
+std::string Document::getHtml () {
     return html;
 }
 
@@ -64,7 +64,7 @@ bool Document::setHtml (std::string&& html) {
     return valid;
 }
 
-const std::string& Document::getText () const {
+std::string Document::getText () {
     return text;
 }
 
@@ -72,7 +72,7 @@ void Document::setText (const std::string &text) {
     Document::text = text;
 }
 
-const std::vector<Token> Document::getTokens () const {
+std::vector<Token> Document::getTokens () {
     return tokens;
 }
 

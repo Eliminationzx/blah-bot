@@ -48,7 +48,7 @@ public:
     unsigned long getId () const;
     void setId (unsigned long id);
 
-    const std::string &getHtml () const;
+    std::string getHtml ();
 
     /*!
      * \brief Set html code
@@ -58,14 +58,14 @@ public:
     bool setHtml (const std::string &html);
     bool setHtml (std::string&& html);
 
-    const std::string& getText () const;
+    std::string getText ();
     void setText (const std::string &text);
 
-    const std::vector<Token> getTokens () const;
+    std::vector<Token> getTokens ();
     void setTokens (const std::vector<Token> &tokens);
     void setTokens (std::vector <std::string> tokens);
 
-    const std::string &getAddress () const {
+    std::string getAddress () {
         return address;
     }
 
