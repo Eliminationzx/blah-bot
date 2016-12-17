@@ -44,6 +44,8 @@ public:
 
     void setIndexWriter (std::shared_ptr <IndexWriter> );
 
+    void operator () ();
+
     /*!
      * \brief start indexing a web page
      *

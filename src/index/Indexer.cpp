@@ -38,6 +38,11 @@ void Indexer::setIndexWriter (shared_ptr <IndexWriter> writer)
     this->indexWriter = writer;
 }
 
+void Indexer::operator () ()
+{
+    start ();
+}
+
 void Indexer::start ()
 {
     Document doc (make_shared <HTMLDocumentParser> ());
