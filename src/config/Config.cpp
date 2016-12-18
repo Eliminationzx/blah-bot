@@ -59,6 +59,8 @@ void Config::setString (std::string key, string value)
     storage[key] = value;
 }
 
+#include <iostream>
+
 void Config::loadFrom (std::string path)
 {
     // open the specified file
@@ -91,6 +93,10 @@ void Config::loadFrom (std::string path)
         // find if the value is of string type
         firstQuoteIndex = line.find_first_of ('"');
         lastQuoteIndex = line.find_last_of ('"');
+
+        // if the colon character wasn't found, then the line is either empty or incorrect
+        if (colonIndex == string::npos)
+            continue;
 
         if (firstQuoteIndex == string::npos && lastQuoteIndex == string::npos)
         {
