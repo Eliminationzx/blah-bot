@@ -16,10 +16,29 @@ Token::Token (string _data, double _idf, double _tf)
         : data (_data), idf (_idf), tf (_tf)
 {}
 
-Token::Token (Token&& source) {
+Token::Token (Token&& source) noexcept
+{
     this->data = move (source.data);
     this->idf = move (source.idf);
     this->tf = move (source.tf);
+}
+
+Token& Token::operator = (Token const& other)
+{
+    this->data = other.data;
+    this->idf = other.idf;
+    this->tf = other.tf;
+
+    return *this;
+}
+
+Token& Token::operator = (Token&& other)
+{
+    this->data = move (other.data);
+    this->idf = move (other.idf);
+    this->tf = move (other.tf);
+
+    return *this;
 }
 
 string Token::getData () {

@@ -14,6 +14,32 @@ Document::Document (shared_ptr<DocumentParser> Parser)
 
 Document::~Document () {}
 
+Document& Document::operator = (Document const& other)
+{
+    this->id = other.id;
+    this->address = other.address;
+    this->html = other.html;
+    this->parser = other.parser;
+    this->text = other.text;
+    this->tokens = other.tokens;
+    this->valid = other.valid;
+
+    return *this;
+}
+
+Document& Document::operator = (Document&& other)
+{
+    this->id = move (other.id);
+    this->address = move (other.address);
+    this->html = move (other.html);
+    this->parser = move (other.parser);
+    this->text = move (other.text);
+    this->tokens = move (other.tokens);
+    this->valid = move (other.valid);
+
+    return *this;
+}
+
 bool Document::parse () {
     if (!valid)
         return false;

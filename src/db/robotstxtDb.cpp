@@ -8,7 +8,7 @@ using namespace std;
 using namespace pqxx;
 
 RobotstxtDb::RobotstxtDb() {
-    this->conn = new connection ("dbname=robotstxt user=postgres");
+    this->conn = new connection ("dbname=index_test user=postgres");
 }
 
 RobotstxtDb::~RobotstxtDb() {

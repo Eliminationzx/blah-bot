@@ -35,8 +35,11 @@ public:
     Document () = delete;
     Document (std::shared_ptr<DocumentParser> );
     ~Document ();
-    Document (const Document& ) = default;
+    Document (Document const& ) = default;
     Document (Document&& ) = default;
+
+    Document& operator = (Document const& other);
+    Document& operator = (Document&& other);
 
     /*!
      * \brief parse document's code.

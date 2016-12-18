@@ -24,6 +24,9 @@ public:
     Token (const Token& ) = default;
     Token (Token&& ) noexcept;
 
+    Token& operator = (Token const& other);
+    Token& operator = (Token&& other);
+
     std::string getData ();
     const std::string getData () const;
     void setData (const std::string&);

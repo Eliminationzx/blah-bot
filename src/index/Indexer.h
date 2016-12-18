@@ -33,11 +33,6 @@ public:
     Indexer (uint64_t);
     ~Indexer ();
 
-    Indexer (Indexer& ) = delete;
-    Indexer& operator = (const Indexer& ) = delete;
-    Indexer (Indexer&& ) = default;
-    Indexer& operator = (Indexer&& ) = default;
-
     void setIndexingQueue (std::shared_ptr<std::deque<Document>> );
 
     void setIndexingQueueMutex (std::shared_ptr<std::mutex> );
@@ -54,6 +49,8 @@ public:
      * parse it, tokenize, stemm and add to index.
      */
     void start ();
+
+    void stop ();
 
     /*!
      * \brief split text into a list of tokens

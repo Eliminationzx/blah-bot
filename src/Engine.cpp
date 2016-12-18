@@ -16,7 +16,8 @@ using namespace std;
 Engine::Engine () {
 }
 
-void Engine::start () {
+void Engine::start ()
+{
     Config conf;
     conf.loadFrom ("/home/ololosh/.config/indexer/indexer.conf");
 
@@ -31,7 +32,8 @@ void Engine::start () {
     );
 
     running = true;
-    int numberOfCrawlers = 2;
+    int numberOfCrawlers = 1;
+    int numberOfIndexers = 1;
 
     auto posgresConn = make_shared<connection> (
             "user=postgres dbname=index_test"
@@ -41,6 +43,7 @@ void Engine::start () {
     crawlerQueueDAO = new CrawlerQueueDAO (posgresConn);
     crawlingQueue = make_shared<deque<string>> ();
     indexingQueue = make_shared<deque<Document>> ();
+    auto indexWriter = make_shared <IndexWriter> (posgresConn);
 
     *crawlingQueue = crawlerQueueDAO->loadQueue ();
     *indexingQueue = indexQueueDAO->getQueue ();
@@ -50,7 +53,7 @@ void Engine::start () {
 //    logger->info ("Loaded crawlingQueue: {} elements.", crawlingQueue->size ());
 //    logger->info ("Loaded indexingQueue: {} elements.", indexingQueue->size ());
 
-    for (int i = 0; i < numberOfCrawlers; ++i)
+    for (uint64_t i = 0; i < numberOfCrawlers; ++i)
     {
         crawlers.push_back (Crawler (i));
         crawlers.back ().setCrawlingQueue (crawlingQueue);
@@ -61,13 +64,29 @@ void Engine::start () {
             crawlers.back ().setLogger (*loggerPath);
     }
 
+    for (uint64_t i = 0; i < numberOfIndexers; ++i)
+    {
+        indexers.push_back (Indexer (i));
+        indexers.back ().setIndexingQueue (indexingQueue);
+        indexers.back ().setIndexingQueueMutex (indexingQueueMutex);
+        indexers.back ().setIndexWriter (indexWriter);
+    }
+
     for (const auto& e : crawlers) {
+        workers.push_back (thread (e));
+    }
+
+    for (auto& e : indexers)
+    {
         workers.push_back (thread (e));
     }
 }
 
 void Engine::stop () {
     logger->debug  (__PRETTY_FUNCTION__);
+
+    for (auto& i : indexers)
+        i.stop ();
 
     for (auto& c : crawlers) {
         c.stop ();

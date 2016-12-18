@@ -49,7 +49,7 @@ void IndexQueueDAO::saveQueue (std::deque<Document>& queue) {
     conn->prepare ("insertCrawlerQueue", "INSERT INTO indexqueue VALUES ($1, $2);");
     work w (*conn);
 
-    for (const auto& item : queue) {
+    for (auto& item : queue) {
         w.prepared ("insertCrawlerQueue")
                 (item.getAddress ())
                 (item.getHtml ())

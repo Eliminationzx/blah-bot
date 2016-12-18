@@ -1,1 +1,0 @@
-/usr/bin/g++    -std=c++17 -fconcepts   CMakeFiles/runHtmlTest.dir/htmlParserTest.cpp.o  -o runHtmlTest  -L/usr/local/lib ../lib/gtest/googlemock/libgmock.a ../lib/gtest/googlemock/libgmock_main.a ../../src/libsrc.a -lgumbo -lpthread -Wl,-rpath,/usr/local/lib 

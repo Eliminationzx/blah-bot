@@ -8,7 +8,7 @@
 #include "indexatorHeader.h"
 
 TEST (indexator, shouldSplitIntoTokens) {
-    Indexer i;
+	Indexer i (0);
 
     EXPECT_THAT (i.tokenize (pageText), ::testing::ContainerEq (expectedTokens));
 }

@@ -1,1 +1,0 @@
-/usr/bin/g++    -std=c++17 -fconcepts   CMakeFiles/crawler.dir/main.cpp.o  -o crawler src/libsrc.a -lpq -lpqxx 

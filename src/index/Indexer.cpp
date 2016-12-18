@@ -85,6 +85,11 @@ void Indexer::start ()
     }
 }
 
+void Indexer::stop ()
+{
+    running = false;
+}
+
 vector<string> Indexer::tokenize (const std::string& text)  {
     vector<string> tokens;
     size_t prevPos = 0;
